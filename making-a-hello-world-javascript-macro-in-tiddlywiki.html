@@ -19,19 +19,19 @@
   <link id="faviconLink" rel="shortcut icon" href="/favicon.ico">
 
 <title>Making a "Hello World" Javascript Macro in Tiddlywiki ~ Adithya's Lair</title>
-<meta name="description" content="Start by copying or forking the HelloWorld macro from here. Import this your TW by following the following steps:">
+<meta name="description" content="To understand and start using TiddlyWiki in a better manner, lets try to create a simple "Hello World" Javascript Macro.">
 
 <meta property="og:type" content="article" />
 <meta property="og:url" content="something" />
 <meta property="og:title" content="Making a "Hello World" Javascript Macro in Tiddlywiki ~ Adithya's Lair" />
 <meta property="og:image" content="" />
-<meta property="og:description" content="Start by copying or forking the HelloWorld macro from here. Import this your TW by following the following steps:" />
+<meta property="og:description" content="To understand and start using TiddlyWiki in a better manner, lets try to create a simple "Hello World" Javascript Macro." />
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@adithya_badidey">
 <meta name="twitter:creator" content="@adithya_badidey">
 <meta name="twitter:title" content="Making a "Hello World" Javascript Macro in Tiddlywiki ~ Adithya's Lair" />
-<meta name="twitter:description" content="Start by copying or forking the HelloWorld macro from here. Import this your TW by following the following steps:" />
+<meta name="twitter:description" content="To understand and start using TiddlyWiki in a better manner, lets try to create a simple "Hello World" Javascript Macro." />
 <meta name="twitter:image" content="" />
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -91,12 +91,12 @@
       <div class="content tc-blog">
 
         <span class="has-text-grey-light is-small tc-subtitle tc-created">
-          4th July, 2020
-        </span>
+		   5th July, 2020
+		 </span>
         <h1 class="tc-title mt-1">
           Making a &quot;Hello World&quot; Javascript Macro in Tiddlywiki
         </h1>
-        <p>Start by copying or forking the HelloWorld macro from <a class="tc-tiddlylink-external" href="https://gist.github.com/adithya-badidey/7f96e27ebe25194c6b6ec2fbd9710e15" rel="noopener noreferrer" target="_blank">here</a>. Import this your TW by following the following steps:</p><ol><li>Create a new tiddly and paste the code into the edit-text box</li><li>Put the title as <code>$:/adithyab/macros/helloworld.js</code></li><li>Enter the type under the textbox as <code>application/javascript</code></li><li>Add a new field with field-name as <code>module-type</code> and field value as <code>macro</code></li><li>Save the tiddly (make sure the wiki is saved too) and refresh your browser tab. </li></ol><p>To run the macro, you will need to open a new tiddly with title <code>Hello World Test</code> (or anything else) and paste the following code into the edit-text box: <code>&lt;&lt;helloworld&gt;&gt;</code>. When you save it, you should see the Tiddly show the Hello World! message.</p><p>So this HelloWorld macro has an optional parameter you can pass. If you change the call to <code>&lt;&lt;helloworld Adithya&gt;&gt;</code>, you will get a <strong>Hello Adithya!</strong> message. Now, you can extend this to many more things. I made a small timediff macro which you can find <a class="tc-tiddlylink-external" href="https://gist.github.com/adithya-badidey/995949c381711d4b27845533d38c014c" rel="noopener noreferrer" target="_blank">here</a>.</p><p>Some tips and tricks to help you:</p><ol><li>Always make a copy of your TW to try out these things. If things break, you might lose data.</li><li>I tested out my function on <a class="tc-tiddlylink-external" href="https://jsbin.com" rel="noopener noreferrer" target="_blank">https://jsbin.com</a> before putting it into the TW</li><li>Look at the core JS macros available here: <a class="tc-tiddlylink-external" href="https://github.com/Jermolene/TiddlyWiki5/tree/master/core/modules/macros" rel="noopener noreferrer" target="_blank">https://github.com/Jermolene/TiddlyWiki5/tree/master/core/modules/macros</a> for reference. </li><li>When you make save your macro, it becomes a &quot;System Tiddler&quot; so you can find it by clicking on the more button in the sidebar and looking under the 'System' tab. You cant find it by searching or in the 'recents' tab.</li><li>For easy acces to the macro, make a link by putting <code>[[$:/adithyab/macros/helloworld.js]]</code> in one of your starting tiddlies.</li><li>The try...catch block makes sure if something breaks in your macro, your TW is still operable. If your get an error, you can get the stacktrace by entering the debugger mode.</li><li>Ask the super helpful folk in the TW google group at <a class="tc-tiddlylink-external" href="https://groups.google.com/forum/#!forum/tiddlywiki" rel="noopener noreferrer" target="_blank">https://groups.google.com/forum/#!forum/tiddlywiki</a> if you need help with anything.</li></ol><p>For a technical description of Javascript Macros, please visit <a class="tc-tiddlylink-external" href="https://tiddlywiki.com/dev/index.html#JavaScript%20Macros" rel="noopener noreferrer" target="_blank">The Tiddlywiki Dev site</a>
+        <p>To understand and start using TiddlyWiki in a better manner, lets try to create a simple &quot;Hello World&quot; Javascript Macro.</p><p>Start by copying or forking the HelloWorld macro from <a class="tc-tiddlylink-external" href="https://gist.github.com/adithya-badidey/7f96e27ebe25194c6b6ec2fbd9710e15" rel="noopener noreferrer" target="_blank">here</a>. Import this your TW by following the following steps:</p><ol><li>Create a new tiddly and paste the code into the edit-text box</li><li>Put the title as <code>$:/adithyab/macros/helloworld.js</code></li><li>Enter the type under the textbox as <code>application/javascript</code></li><li>Add a new field with field-name as <code>module-type</code> and field value as <code>macro</code></li><li>Save the tiddly (make sure the wiki is saved too) and refresh your browser tab. </li></ol><p>To run the macro, you will need to open a new tiddly with title <code>Hello World Test</code> (or anything else) and paste the following code into the edit-text box: <code>&lt;&lt;helloworld&gt;&gt;</code>. When you save it, you should see the Tiddly show the Hello World! message.</p><p>So this HelloWorld macro has an optional parameter you can pass. If you change the call to <code>&lt;&lt;helloworld Adithya&gt;&gt;</code>, you will get a <strong>Hello Adithya!</strong> message. Now, you can extend this to many more things. I made a small timediff macro which you can find <a class="tc-tiddlylink-external" href="https://gist.github.com/adithya-badidey/995949c381711d4b27845533d38c014c" rel="noopener noreferrer" target="_blank">here</a>.</p><h3 class="">Some tips and tricks</h3><ol><li>Always make a copy of your TW to try out these things. If things break, you might lose data.</li><li>I tested out my function on <a class="tc-tiddlylink-external" href="https://jsbin.com" rel="noopener noreferrer" target="_blank">https://jsbin.com</a> before putting it into the TW</li><li>Look at the core JS macros available here: <a class="tc-tiddlylink-external" href="https://github.com/Jermolene/TiddlyWiki5/tree/master/core/modules/macros" rel="noopener noreferrer" target="_blank">https://github.com/Jermolene/TiddlyWiki5/tree/master/core/modules/macros</a> for reference. </li><li>When you make save your macro, it becomes a &quot;System Tiddler&quot; so you can find it by clicking on the more button in the sidebar and looking under the 'System' tab. You cant find it by searching or in the 'recents' tab.</li><li>For easy acces to the macro, make a link by putting <code>[[$:/adithyab/macros/helloworld.js]]</code> in one of your starting tiddlies.</li><li>The try...catch block makes sure if something breaks in your macro, your TW is still operable. If your get an error, you can get the stacktrace by entering the debugger mode.</li><li>Ask the super helpful folk in the TW google group at <a class="tc-tiddlylink-external" href="https://groups.google.com/forum/#!forum/tiddlywiki" rel="noopener noreferrer" target="_blank">https://groups.google.com/forum/#!forum/tiddlywiki</a> if you need help with anything.</li></ol><p>For a technical description of Javascript Macros, please visit <a class="tc-tiddlylink-external" href="https://tiddlywiki.com/dev/index.html#JavaScript%20Macros" rel="noopener noreferrer" target="_blank">The Tiddlywiki Dev site</a>
 </p>
       </div>
 <div class="tc-blog-footer">
@@ -104,7 +104,7 @@
         
         <div class="level-left">
           <p class="is-size-7 has-text-grey-light is-small tc-modified tc-subtitle">Last Updated: 
-            11th September, 2020</p>
+            12th September, 2020</p>
         </div>
         <div class="level-right">
           <div class="tags">

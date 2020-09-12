@@ -318,7 +318,7 @@ code,
 pre {
   -moz-osx-font-smoothing: auto;
   -webkit-font-smoothing: auto;
-  font-family: "Inconsolata", "Liberation Mono", Consolas, "SFMono-Regular", Courier, monospace;
+  font-family: "Menlo", "Inconsolata", "Liberation Mono", Consolas, "SFMono-Regular", Courier, monospace;
 }
 
 body {
@@ -8746,11 +8746,11 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
 }
 
 .is-family-monospace {
-  font-family: "Inconsolata", "Liberation Mono", Consolas, "SFMono-Regular", Courier, monospace !important;
+  font-family: "Menlo", "Inconsolata", "Liberation Mono", Consolas, "SFMono-Regular", Courier, monospace !important;
 }
 
 .is-family-code {
-  font-family: "Inconsolata", "Liberation Mono", Consolas, "SFMono-Regular", Courier, monospace !important;
+  font-family: "Menlo", "Inconsolata", "Liberation Mono", Consolas, "SFMono-Regular", Courier, monospace !important;
 }
 
 .is-block {
@@ -9838,7 +9838,7 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
 }
 
 h1, h2, h3, h4, h5, h6, nav, .button, .tag {
-  font-family: "Inconsolata", "Liberation Mono", Consolas, "SFMono-Regular", Courier, monospace;
+  font-family: "Menlo", "Inconsolata", "Liberation Mono", Consolas, "SFMono-Regular", Courier, monospace;
 }
 
 a.tc-tiddlylink-external {
@@ -9883,6 +9883,16 @@ a.tc-tiddlylink-external:hover {
 }
 .tc-blog .tc-title {
   font-size: 2.2em;
+}
+
+.tc-blog-extract {
+  border: 1px solid #535170;
+  border-left: 0.5em solid #535170;
+  font-size: 75%;
+  padding: 1em;
+}
+.tc-blog-extract h3 {
+  margin-bottom: 0.25em;
 }
 
 /*# sourceMappingURL=style.css.map */
