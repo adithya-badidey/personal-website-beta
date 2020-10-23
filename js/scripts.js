@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if ($navbarBurgers.length > 0) {
 
     // Add a click event on each of them
-    $navbarBurgers.forEach( el => {
+    $navbarBurgers.forEach(el => {
       el.addEventListener('click', () => {
 
         // Get the target from the "data-target" attribute
@@ -21,5 +21,16 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   }
+
+  var disqus_config = function () {
+    this.page.url = "<<get_absolute_url>>";
+    this.page.identifier = "<<get_page_uniqueid>>";
+  };
+  (function () {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://adithyab-in.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
 
 });

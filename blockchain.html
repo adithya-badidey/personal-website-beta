@@ -86,79 +86,84 @@
 
 
 <section class="section">
-  <div class="columns mt-6">
-    <div class="column is-6-desktop is-8-tablet is-offset-2">
-      <div class="content tc-blog">
-
-<article class="message">
-  <div class="message-body">
-    This note is a part of my Zettelkasten. What is below might not be complete or accurate. It is also likely to change often.
-  </div>
-</article>
-
-        <span class="has-text-grey-light is-small tc-subtitle tc-created">
-		   23rd July, 2020
-		 </span>
-        <h1 class="tc-title mt-1">
-          Blockchain
-        </h1>
-        <ul><li>Originally the technology that powered <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./bitcoin.html">Bitcoin</a></li><li>Now, Blockchain is an alias for a bunch of Distributed Ledger Technologies (<a class="tc-tiddlylink tc-tiddlylink-resolves" href="./dlt.html">DLT</a>s) that can record and track any data of value.</li><li>It powers and inspired a number of currencies, databases, etc<ul><li><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./ethereum.html">Ethereum</a></li><li><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./dapp.html">DAPP</a></li><li><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./dao.html">DAO</a></li></ul></li></ul><h2 class="">How does it work?</h2><ul><li><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./peer-to-peer-network.html">Peer to peer Network</a><ul><li>Each computer holds a copy of the entire transaction history for the network.</li></ul></li><li>Data is saved in blocks<ul><li>The first block is called genesis block.</li><li>Each block contains multiple packets of transactions</li></ul></li><li>Each successive block is chained next to the previous block<ul><li>Block(n+1) contains the hash of Block(n)</li><li>So blocks cannot be changed or removed once added to the chain since that would effect the hash of successive blocks<ul><li>Corrections can only be made by adding using new blocks</li></ul></li><li>Therefore, its a non-destructive way to store data</li></ul></li><li><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./proof-of-work.html">Proof of work</a> is a mechanism which slows down the addition of blocks<ul><li>Its a cryptographic puzzle that needs to be solved to create a block.</li><li>It supposed to take 10 minutes to solve.</li><li>So, to tamper an old block, the tamperer would have to recalculate the proof of work on every subsequent block from that one to the latest.</li></ul></li><li>There is no central entity - blockchain is a <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./distributed.html">distributed</a> peer-to-peer network where data is stored on many nodes<ul><li>When someone creates a new block, its sent to everyone on the network for verification and storage</li><li>Once each node verifies the proof-of-work and has on the new block, the new block is added to their blockchain</li><li>Consensus is created when a simple majority of nodes accept the new block.</li></ul></li></ul>
-      </div>
-<div class="tc-blog-footer">
-      <nav class="level is-mobile">
-        
-        <div class="level-left">
-          <p class="is-size-7 has-text-grey-light is-small tc-modified tc-subtitle">Last Updated: 
-            14th August, 2020</p>
+    <div class="columns mt-6">
+        <div class="column is-5-fullhd is-6-desktop is-8-tablet is-offset-2">
+            <div class="content tc-blog">
+                
+                    <article class="message">
+                        <div class="message-body">
+                            This note is a part of my Zettelkasten. What is below might not be complete or accurate. It
+                            is also likely to change often.
+                        </div>
+                    </article>
+                
+                <span class="has-text-grey-light is-small tc-subtitle tc-created">
+                    23rd July, 2020
+                </span>
+                <h1 class="tc-title mt-1">
+                    Blockchain
+                </h1>
+                <ul><li>Originally the technology that powered <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./bitcoin.html">Bitcoin</a></li><li>Now, Blockchain is an alias for a bunch of Distributed Ledger Technologies (<a class="tc-tiddlylink tc-tiddlylink-resolves" href="./dlt.html">DLT</a>s) that can record and track any data of value.</li><li>It powers and inspired a number of currencies, databases, etc<ul><li><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./ethereum.html">Ethereum</a></li><li><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./dapp.html">DAPP</a></li><li><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./dao.html">DAO</a></li></ul></li></ul><h2 class="">How does it work?</h2><ul><li><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./peer-to-peer-network.html">Peer to peer Network</a><ul><li>Each computer holds a copy of the entire transaction history for the network.</li></ul></li><li>Data is saved in blocks<ul><li>The first block is called genesis block.</li><li>Each block contains multiple packets of transactions</li></ul></li><li>Each successive block is chained next to the previous block<ul><li>Block(n+1) contains the hash of Block(n)</li><li>So blocks cannot be changed or removed once added to the chain since that would effect the hash of successive blocks<ul><li>Corrections can only be made by adding using new blocks</li></ul></li><li>Therefore, its a non-destructive way to store data</li></ul></li><li><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./proof-of-work.html">Proof of work</a> is a mechanism which slows down the addition of blocks<ul><li>Its a cryptographic puzzle that needs to be solved to create a block.</li><li>It supposed to take 10 minutes to solve.</li><li>So, to tamper an old block, the tamperer would have to recalculate the proof of work on every subsequent block from that one to the latest.</li></ul></li><li>There is no central entity - blockchain is a <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./distributed.html">distributed</a> peer-to-peer network where data is stored on many nodes<ul><li>When someone creates a new block, its sent to everyone on the network for verification and storage</li><li>Once each node verifies the proof-of-work and has on the new block, the new block is added to their blockchain</li><li>Consensus is created when a simple majority of nodes accept the new block.</li></ul></li></ul>
+            </div>
+            <div class="tc-blog-footer">
+                <hr class="mb-2">
+                <nav class="tc-backlinks mb-4">
+                    <h2 class="backlinks-header">
+                        
+                            This page has been linked from:
+                        
+                    </h2>
+                    <div class="content">
+                        <ul>
+                            
+                                <li>
+                                    <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./collective-action-problems.html">
+                                        Collective Action Problems
+                                    </a>
+                                </li>
+                            
+                                <li>
+                                    <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./ethereum.html">
+                                        Ethereum
+                                    </a>
+                                </li>
+                            
+                                <li>
+                                    <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./oracle.html">
+                                        Oracle
+                                    </a>
+                                </li>
+                            
+                        </ul>
+                    </div>
+                </nav>
+                <nav class="level is-mobile">
+                    
+                    <div class="level-left">
+                        <p class="is-size-7 has-text-grey-light is-small tc-modified tc-subtitle">Last Updated: 
+                            14th August, 2020
+                        </p>
+                    </div>
+                    <div class="level-right">
+                        <div class="tags">
+                            
+                                <span class="tag">
+                                    DLT
+                                </span>
+                            
+                                <span class="tag">
+                                    source
+                                </span>
+                            
+                        </div>
+                    </div>
+                </nav>
+                <hr>
+            </div>
+            <div id="disqus_thread"></div>
+            <noscript>Please enable JavaScript to view the comments.</noscript>
         </div>
-        <div class="level-right">
-          <div class="tags">
-            
-              <span class="tag">
-                DLT
-              </span>
-            
-              <span class="tag">
-                source
-              </span>
-            
-          </div>
-        </div>
-      </nav>
-      <hr>
-</div>
-      <nav class="tc-backlinks">
-<h2 class="backlinks-header">
-
-This page has been linked from:
-
-</h2>
-<div class="content">
-        <ul>
-          
-            <li>
-              <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./collective-action-problems.html">
-                Collective Action Problems
-              </a>
-            </li>
-          
-            <li>
-              <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./ethereum.html">
-                Ethereum
-              </a>
-            </li>
-          
-            <li>
-              <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./oracle.html">
-                Oracle
-              </a>
-            </li>
-          
-        </ul>
-</div>
-      </nav>
     </div>
-  </div>
 </section>
 
 <footer class="footer">
