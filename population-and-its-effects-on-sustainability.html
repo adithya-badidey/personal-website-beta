@@ -38,26 +38,27 @@
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-171642977-1"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
+
+  function gtag() {
+    dataLayer.push(arguments);
+  }
   gtag('js', new Date());
 
   gtag('config', 'UA-171642977-1');
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const e = Array.prototype.slice.call(document.querySelectorAll(".navbar-burger"), 0);
+    e.length > 0 && e.forEach(e => {
+      e.addEventListener("click", () => {
+        const t = e.dataset.target,
+          a = document.getElementById(t);
+        e.classList.toggle("is-active"), a.classList.toggle("is-active")
+      })
+    })
+  });
 </script>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const e = Array.prototype.slice.call(document.querySelectorAll(".navbar-burger"), 0);
-      e.length > 0 && e.forEach(e => {
-        e.addEventListener("click", () => {
-          const t = e.dataset.target,
-            a = document.getElementById(t);
-          e.classList.toggle("is-active"), a.classList.toggle("is-active")
-        })
-      })
-    });
-  </script>
-  
-<link rel="stylesheet" href="/css/style.css"/>
+<link rel="stylesheet" href="css/style.css" />
 </head>
 
 <body class="tc-body">
@@ -65,7 +66,7 @@
 <nav aria-label="main navigation" class="navbar" role="navigation">
     <div class="navbar-brand">
       <a class="navbar-item" href="/">
-        <img height="36" src="img/logo.png">
+        Adithya's Lair
       </a>
 
       <a aria-expanded="false" aria-label="menu" class="navbar-burger burger" data-target="navbarTW" role="button">
@@ -96,7 +97,7 @@
                 <h1 class="tc-title mt-1">
                     Population and its effects on Sustainability
                 </h1>
-                <p><em>These are notes from &quot;Module 2: Population and Sustainability&quot; of APU's Online Course - <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./apu-sus.html">Sustainability in the Indian Context</a></em></p><p>The traditional economic view has always been that population growth over a certain rate is a problem. Our current understanding is more nuanced.</p><h2 class="">Population Growth and Sustainability</h2><p>Total population has been quite low for most of human history. Its only around the mid 20th century that population starts growing rapidly. In India's case: 350 million in 1950 to 1.3 billion in 2020.</p><p>Our collective ecological impact is a product of the population and per capita consumption. So the more the population, the more is the ecological impact. However, if we overfocus on population, we run the risk of having incomplete response to problems of <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./finitude.html">Finitude</a> and <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./fragility.html">Fragility</a>, possibly making <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./fairness.html">Fairness</a> worse.</p><p>With high population growth, finite resources like like access to Infrastructure, food, etc tends to become more exclusive and unfair. Governments should increase investment on making sure that this is not the case. Usually, government's response tends to:</p><ul><li>Advise and advertize family planning (Ex: Hum do hamare ho)</li><li>Take coercive measures to restrict population growth<ul><li>Forced sterilization under Indira Gandhi</li><li>One family one child policy in China.</li><li>These impinge on <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./fairness.html">Fairness</a> and <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./human-rights.html">Human Rights</a></li></ul></li></ul><p>By 2050, India's population is estimated to reach 1.6 billion. World's population is estimated to reach 9 billion. Birth rates are slowing down across the world, including India. However, people are living longer lives so the population remains fast growing.</p><h2 class="">Affluence, Consumption and Sustainability</h2><p>Environmental impact is determined by both <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./population-growth-and-sustainability.html">population growth</a> and per capita resource consumption.</p><p>The per capita resource consumption increases along with increasing affluence. Richer you are the more unsustainable you be.</p><p>For example, let us take the example of a <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./public-good.html">Public Good</a> - traffic:</p><ul><li>Buses are the mode of transport for the less affluent. If more people travel by bus, it would lead to less traffic, less consumption and cause less pollution.</li><li>Cars are preferred by more affluent people. They take more road space, higher consumption and cause more pollution per capita.</li></ul><h3 class="">What effects sustainability most is increase in consumption</h3><p>The main reasons for the overall increase in consumption are:</p><ul><li>Improved basic standards of living<ul><li>As people are lifted out of <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./poverty.html">Poverty</a>, they start consuming more. This is good for <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./fairness.html">Fairness</a> and a favourable outcome even though it increases overall consumption</li></ul></li><li>Desire for increased convinience, speed and status.<ul><li>Generally, as one's affluence increases, their consumption increases. In fact, we need 1.5 earths to support our consumption. The richest 10% contribute 50% of all the CO2 emmissions. </li></ul></li><li><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./markets.html">Markets</a> incentivising Consumption.<ul><li>Markets and Governments generally encourage consumption since it leads to increased <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./gdp-per-capita.html">GDP per capita</a> and taxes. Governments are among the few forces which can regulate consumption. For example: higher <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./taxes.html">Taxes</a> on private transport (like in Singapore), leads to a higher use of public transport and disincentivizes the ownership of multiple cars.</li></ul></li></ul><h2 class="">Technological Intensification and Sustainability</h2><p>Previous module: <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./framing-sustainability-with-the-3fs.html">Framing Sustainability with the 3Fs</a></p><p>Next module: <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./food-and-sustainability-in-india.html">Food and Sustainability in India</a></p>
+                <p><em>These are notes from &quot;Module 2: Population and Sustainability&quot; of APU's Online Course - <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./apu-sus.html">Sustainability in the Indian Context</a></em></p><p>The traditional economic view has always been that population growth over a certain rate is a problem. Our current understanding is more nuanced.</p><h2 class="">Population Growth and Sustainability</h2><p>Total population has been quite low for most of human history. Its only around the mid 20th century that population starts growing rapidly. In India's case: 350 million in 1950 to 1.3 billion in 2020.</p><p>Our collective ecological impact is a product of the population and per capita consumption. So the more the population, the more is the ecological impact. However, if we overfocus on population, we run the risk of having incomplete response to problems of <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./finitude.html">Finitude</a> and <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./fragility.html">Fragility</a>, possibly making <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./fairness.html">Fairness</a> worse.</p><p>With high population growth, finite resources like like access to Infrastructure, food, etc tends to become more exclusive and unfair. Governments should increase investment on making sure that this is not the case. Usually, government's response tends to:</p><ul><li>Advise and advertize family planning (Ex: Hum do hamare ho)</li><li>Take coercive measures to restrict population growth<ul><li>Forced sterilization under Indira Gandhi</li><li>One family one child policy in China.</li><li>These impinge on <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./fairness.html">Fairness</a> and <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./human-rights.html">Human Rights</a></li></ul></li></ul><p>By 2050, India's population is estimated to reach 1.6 billion. World's population is estimated to reach 9 billion. Birth rates are slowing down across the world, including India. However, people are living longer lives so the population remains fast growing.</p><h2 class="">Affluence, Consumption and Sustainability</h2><p>Environmental impact is determined by both <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./population-growth-and-sustainability.html">population growth</a> and per capita resource consumption.</p><p>The per capita resource consumption increases along with increasing affluence. Richer you are the more unsustainable you be.</p><p>For example, let us take the example of a <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./public-good.html">Public Good</a> - traffic:</p><ul><li>Buses are the mode of transport for the less affluent. If more people travel by bus, it would lead to less traffic, less consumption and cause less pollution.</li><li>Cars are preferred by more affluent people. They take more road space, higher consumption and cause more pollution per capita.</li></ul><h3 class="">What effects sustainability most is increase in consumption</h3><p>The main reasons for the overall increase in consumption are:</p><ul><li>Improved basic standards of living<ul><li>As people are lifted out of <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./poverty.html">Poverty</a>, they start consuming more. This is good for <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./fairness.html">Fairness</a> and a favourable outcome even though it increases overall consumption</li></ul></li><li>Desire for increased convinience, speed and status.<ul><li>Generally, as one's affluence increases, their consumption increases. In fact, we need 1.5 earths to support our consumption. The richest 10% contribute 50% of all the CO2 emmissions. </li></ul></li><li><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./market.html">Market</a> incentivising Consumption.<ul><li>Markets and Governments generally encourage consumption since it leads to increased <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./gdp-per-capita.html">GDP per capita</a> and taxes. Governments are among the few forces which can regulate consumption. For example: higher <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./taxes.html">Taxes</a> on private transport (like in Singapore), leads to a higher use of public transport and disincentivizes the ownership of multiple cars.</li></ul></li></ul><h2 class="">Technological Intensification and Sustainability</h2><p>Previous module: <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./framing-sustainability-with-the-3fs.html">Framing Sustainability with the 3Fs</a></p><p>Next module: <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./food-and-sustainability-in-india.html">Food and Sustainability in India</a></p>
             </div>
             <div class="tc-blog-footer">
                 <hr class="mb-2">
@@ -128,7 +129,7 @@
                     
                     <div class="level-left">
                         <p class="is-size-7 has-text-grey-light is-small tc-modified tc-subtitle">Last Updated: 
-                            6th March, 2021
+                            16th March, 2021
                         </p>
                     </div>
                     <div class="level-right">
@@ -162,25 +163,14 @@
 </section>
 
 <footer class="footer">
-  <div class="content has-text-centered">
-    <p>
-Built with <a class="tc-tiddlylink-external" href="https://tiddlywiki.com" rel="noopener noreferrer" target="_blank">Tiddlywiki</a> and <a class="tc-tiddlylink-external" href="https://bulma.io/" rel="noopener noreferrer" target="_blank">Bulma</a>. Hosted on <a class="tc-tiddlylink-external" href="https://pages.github.com/" rel="noopener noreferrer" target="_blank">Github Pages</a>.
+  <div class="columns">
+	  <div class="column is-6-desktop is-8-tablet is-offset-2"><p><p>
+Built with <a class="tc-tiddlylink-external" href="https://tiddlyjam.com" rel="noopener noreferrer" target="_blank">TiddlyJam</a> and <a class="tc-tiddlylink-external" href="https://bulma.io/" rel="noopener noreferrer" target="_blank">Bulma</a>. Hosted on <a class="tc-tiddlylink-external" href="https://pages.github.com/" rel="noopener noreferrer" target="_blank">Github Pages</a>.
     </p>
+		</p></div>
   </div>
 	<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;600&amp;display=swap" rel="stylesheet">
 </footer>
 
-	<script>
-	  var disqus_config = function () {
-    this.page.url = "https://adithyab.in/population-and-its-effects-on-sustainability";
-    this.page.identifier = "20200731041312710";
-  };
-  (function () {
-    var d = document, s = d.createElement('script');
-    s.src = 'https://adithyab-in.disqus.com/embed.js';
-    s.setAttribute('data-timestamp', +new Date());
-    (d.head || d.body).appendChild(s);
-  })();
-	</script>
 </body>
 </html>

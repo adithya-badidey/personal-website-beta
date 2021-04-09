@@ -1,0 +1,185 @@
+@charset "utf-8"
+// One Time Compilation : sass style.sass:personal-website-beta/css/style.css
+// Watch and compile    : sass --watch style.sass:personal-website-beta/css/style.css
+
+
+////////////////////////////////////////////////
+// SUPERHERO
+////////////////////////////////////////////////
+
+$footer-padding	: 2rem
+
+$grey-dark: #272635
+$grey-darkest: darken($grey-dark, 5)
+$grey: lighten($grey-dark, 20)
+$grey-lightest: #C6c6c6
+$grey-light: darken($grey-lightest,20)
+
+$orange: #df691a
+$yellow: #f0ad4e
+$green: #A4D4B4
+$blue: #00707A
+$turqoise: #03CEA4
+$red: #C96A59
+
+// bc99ff
+$violet: #ccb1ff
+$pink: #fc00ff
+
+$primary: $grey-dark !default
+
+$title-color: $grey-lightest
+$title-weight: 400
+$subtitle-strong-color: $grey-lightest
+$subtitle-color: darken($grey-lightest, 10)
+$subtitle-strong-color: darken($grey-lightest, 10)
+
+$background: $grey-dark
+$body-background-color: $grey-darkest
+$footer-background-color: $background
+
+$border: $grey
+
+// $family-sans-serif: Lato, "Helvetica Neue", Helvetica, Arial, sans-serif
+$family-monospace: "Menlo","Inconsolata","Liberation Mono",Consolas,"SFMono-Regular",Courier,monospace
+
+$text: $grey-lightest
+$text-strong: darken($grey-lightest, 10)
+$text-light: $grey-light
+
+$box-background-color: $background
+
+$card-shadow: none
+$card-background-color: darken($body-background-color, 1)
+$card-header-box-shadow: none
+$card-header-background-color: darken($body-background-color, 3)
+$card-footer-background-color: darken($body-background-color, 3)
+
+$link: $turqoise
+$link-hover: $pink
+$link-focus: $pink
+$link-active: $pink
+
+$button-color: $grey-lightest
+$button-background-color: $grey-dark
+$button-text-hover-background-color: $turqoise
+$button-text-hover-color: $grey-dark
+$button-border-color: $grey-dark
+
+$button-hover-border: transparent
+$button-active-border-color: transparent
+
+$radius: 0
+$radius-small: 0
+
+$input-hover-color: $link-hover
+$input-color: $grey-darkest
+$input-icon-color: $grey
+$input-icon-active-color: $input-color
+
+$table-color: $text
+$table-head-color: $grey-lightest
+$table-background-color: $grey-dark
+$table-cell-border: 1px solid $grey
+$table-row-hover-background-color: $grey-darkest
+$table-striped-row-even-background-color: $grey-darkest
+$table-striped-row-even-hover-background-color: lighten($grey-darkest, 4)
+
+$navbar-background-color: rbga($background, 0.4)
+$navbar-item-color: $text
+$navbar-item-hover-color: $turqoise
+$navbar-item-active-color: $primary
+$navbar-item-hover-background-color: rgba($grey-darkest, 0.1)
+$navbar-item-active-background-color: rgba($grey-darkest, 0.1)
+$navbar-dropdown-item-hover-color: $grey-light
+$navbar-dropdown-item-active-color: $primary
+$navbar-dropdown-background-color: $background
+$navbar-dropdown-arrow: currentColor
+
+$dropdown-content-background-color: $background
+$dropdown-item-color: $text
+$dropdown-item-hover-color: $text-light
+
+$tabs-toggle-link-active-background-color: $background
+$tabs-toggle-link-active-border-color: $border
+$tabs-toggle-link-active-color: #fff
+$tabs-boxed-link-active-background-color: $body-background-color
+
+$pagination-color: $link
+$pagination-border-color: $border
+
+$bulmaswatch-import-font: true !default
+
+$file-cta-background-color: $grey-darkest
+
+$progress-bar-background-color: $grey-dark
+
+$panel-heading-background-color: $grey-dark
+
+$size-6: 1.1em
+@import "../../bulma/bulma.sass"
+
+
+h1, h2, h3, h4, h5, h6, nav, .button, .tag, .message
+  font-family: $family-monospace
+
+.content 
+  h1, h2, h3, h4, h5, h6
+    font-weight: 300
+    color: $grey-lightest
+    margin-bottom: 0.25em
+
+
+a
+  .tc-tiddlylink-external
+    color: lighten($pink,20)
+  .tc-tiddlylink
+    color: $turqoise
+  &:hover
+    color: $pink
+
+a.tc-tiddlylink-external:hover
+  color: $turqoise
+
+.tc-backlinks 
+  font-weight: 300
+  font-size: 0.9em
+  ul
+    line-height: 1.3
+    margin-top: 0
+    list-style-type: circle
+  li + li
+    margin-top: 0
+
+.tc-blog-footer
+  hr 
+    margin-top: .5em
+  .level
+    margin-bottom: 0
+
+.tc-blog 
+  >p:first-of-type
+    font-size: 120%
+    padding-bottom: 0.3em
+
+  .tc-title
+    font-size: $size-1
+    font-weight: 300
+
+.tc-blog-extract
+  border: 1px solid $grey
+  border-left: 0.5em solid $grey
+  padding: 1em
+  h3
+    font-size: $size-5
+    margin-top: 0.25em
+    margin-bottom: 0.25em
+
+
+// .bg-pattern
+//   background-image: url("/img/double-bubble-dark.png")
+//   background-repeat: repeat
+
+  // This is the polka dot pattern.
+  // background-image: radial-gradient(ellipse  100% 100% , #013440, #013440 25%, transparent 25%),radial-gradient(ellipse  50% 50% , #AB1A25, #AB1A25 25%, #002635 25%)
+  // background-size: 1em 1em, 2em 2em

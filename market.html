@@ -18,19 +18,19 @@
 
   <link id="faviconLink" rel="shortcut icon" href="/favicon.ico">
 
-<title>Markets ~ Adithya's Lair</title>
+<title>Market ~ Adithya's Lair</title>
 <meta name="description" content="A market is a system/platform/etc which enables parties to engage in exchange for mutual benefit.">
 
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://adithyab.in/markets" />
-<meta property="og:title" content="Markets ~ Adithya's Lair" />
+<meta property="og:url" content="https://adithyab.in/market" />
+<meta property="og:title" content="Market ~ Adithya's Lair" />
 <meta property="og:image" content="" />
 <meta property="og:description" content="A market is a system/platform/etc which enables parties to engage in exchange for mutual benefit." />
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@adithya_badidey">
 <meta name="twitter:creator" content="@adithya_badidey">
-<meta name="twitter:title" content="Markets ~ Adithya's Lair" />
+<meta name="twitter:title" content="Market ~ Adithya's Lair" />
 <meta name="twitter:description" content="A market is a system/platform/etc which enables parties to engage in exchange for mutual benefit." />
 <meta name="twitter:image" content="" />
 
@@ -38,26 +38,27 @@
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-171642977-1"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
+
+  function gtag() {
+    dataLayer.push(arguments);
+  }
   gtag('js', new Date());
 
   gtag('config', 'UA-171642977-1');
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const e = Array.prototype.slice.call(document.querySelectorAll(".navbar-burger"), 0);
+    e.length > 0 && e.forEach(e => {
+      e.addEventListener("click", () => {
+        const t = e.dataset.target,
+          a = document.getElementById(t);
+        e.classList.toggle("is-active"), a.classList.toggle("is-active")
+      })
+    })
+  });
 </script>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const e = Array.prototype.slice.call(document.querySelectorAll(".navbar-burger"), 0);
-      e.length > 0 && e.forEach(e => {
-        e.addEventListener("click", () => {
-          const t = e.dataset.target,
-            a = document.getElementById(t);
-          e.classList.toggle("is-active"), a.classList.toggle("is-active")
-        })
-      })
-    });
-  </script>
-  
-<link rel="stylesheet" href="/css/style.css"/>
+<link rel="stylesheet" href="css/style.css" />
 </head>
 
 <body class="tc-body">
@@ -65,7 +66,7 @@
 <nav aria-label="main navigation" class="navbar" role="navigation">
     <div class="navbar-brand">
       <a class="navbar-item" href="/">
-        <img height="36" src="img/logo.png">
+        Adithya's Lair
       </a>
 
       <a aria-expanded="false" aria-label="menu" class="navbar-burger burger" data-target="navbarTW" role="button">
@@ -101,7 +102,7 @@
                     16th July, 2020
                 </span>
                 <h1 class="tc-title mt-1">
-                    Markets
+                    Market
                 </h1>
                 <p>A market is a system/platform/etc which enables parties to engage in exchange for mutual benefit.</p><ul><li>Where <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./supply.html">Supply</a> meets <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./demand.html">Demand</a></li><li>markets are ineffective in facilitating exchange in non-commodities like a public good</li><li>a <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./public-good.html">Public Good</a></li><li>a <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./our-collective-imagined-reality.html">Story</a></li></ul>
             </div>
@@ -207,7 +208,7 @@
                     
                     <div class="level-left">
                         <p class="is-size-7 has-text-grey-light is-small tc-modified tc-subtitle">Last Updated: 
-                            17th October, 2020
+                            16th March, 2021
                         </p>
                     </div>
                     <div class="level-right">
@@ -233,10 +234,11 @@
 </section>
 
 <footer class="footer">
-  <div class="content has-text-centered">
-    <p>
-Built with <a class="tc-tiddlylink-external" href="https://tiddlywiki.com" rel="noopener noreferrer" target="_blank">Tiddlywiki</a> and <a class="tc-tiddlylink-external" href="https://bulma.io/" rel="noopener noreferrer" target="_blank">Bulma</a>. Hosted on <a class="tc-tiddlylink-external" href="https://pages.github.com/" rel="noopener noreferrer" target="_blank">Github Pages</a>.
+  <div class="columns">
+	  <div class="column is-6-desktop is-8-tablet is-offset-2"><p><p>
+Built with <a class="tc-tiddlylink-external" href="https://tiddlyjam.com" rel="noopener noreferrer" target="_blank">TiddlyJam</a> and <a class="tc-tiddlylink-external" href="https://bulma.io/" rel="noopener noreferrer" target="_blank">Bulma</a>. Hosted on <a class="tc-tiddlylink-external" href="https://pages.github.com/" rel="noopener noreferrer" target="_blank">Github Pages</a>.
     </p>
+		</p></div>
   </div>
 	<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;600&amp;display=swap" rel="stylesheet">
 </footer>

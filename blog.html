@@ -38,26 +38,27 @@
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-171642977-1"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
+
+  function gtag() {
+    dataLayer.push(arguments);
+  }
   gtag('js', new Date());
 
   gtag('config', 'UA-171642977-1');
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const e = Array.prototype.slice.call(document.querySelectorAll(".navbar-burger"), 0);
+    e.length > 0 && e.forEach(e => {
+      e.addEventListener("click", () => {
+        const t = e.dataset.target,
+          a = document.getElementById(t);
+        e.classList.toggle("is-active"), a.classList.toggle("is-active")
+      })
+    })
+  });
 </script>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const e = Array.prototype.slice.call(document.querySelectorAll(".navbar-burger"), 0);
-      e.length > 0 && e.forEach(e => {
-        e.addEventListener("click", () => {
-          const t = e.dataset.target,
-            a = document.getElementById(t);
-          e.classList.toggle("is-active"), a.classList.toggle("is-active")
-        })
-      })
-    });
-  </script>
-  
-<link rel="stylesheet" href="/css/style.css"/>
+<link rel="stylesheet" href="css/style.css" />
 </head>
 
 <body class="tc-body">
@@ -68,7 +69,7 @@
     <nav aria-label="main navigation" class="navbar" role="navigation">
     <div class="navbar-brand">
       <a class="navbar-item" href="/">
-        <img height="36" src="img/logo.png">
+        Adithya's Lair
       </a>
 
       <a aria-expanded="false" aria-label="menu" class="navbar-burger burger" data-target="navbarTW" role="button">
@@ -90,13 +91,15 @@
 
   </div>
   <div class="hero-body">
-    <div class="container">
+    <div class="columns">
+		 <div class="column is-6-desktop is-8-tablet is-offset-2">
       <h1 class="title">
         Blog
       </h1>
       <h2 class="subtitle">
         Some things I have written about
       </h2>
+		</div>
     </div>
   </div>
 </section>
@@ -104,21 +107,21 @@
 <section class="section"><p><div class="columns">
     <div class="column is-6-desktop is-8-tablet is-offset-2">
 
-<div class="content is-medium"><h2 class="subtitle is-5 has-text-grey">17th October, 2020</h2><h1 class="title is-3"><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./situating-sustainability.html">Situating Sustainability</a></h1>These are notes from &quot;Module 5: Situating Sustainability&quot; of APU's Online Course - Sustainability in the Indian Context</div><nav class="level is-mobile mb-0"><div class="level-left"><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./situating-sustainability.html"><button class="button is-text">Read</button></a></div><div class="level-right"><div class="tags"><span class="tag">3Fs</span><span class="tag">apu-sus</span><span class="tag">source</span><span class="tag">sustainability</span></div></div></nav><hr>
+<div><div class="block"><h2 class="title is-4"><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./situating-sustainability.html">Situating Sustainability</a></h2><div class="subtitle is-6">17th October, 2020</div><p>These are notes from &quot;Module 5: Situating Sustainability&quot; of APU's Online Course - Sustainability in the Indian Context</p></div><div class="block"><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./situating-sustainability.html"><button class="button is-link is-outlined">Read</button></a></div></div><hr>
 
-<div class="content is-medium"><h2 class="subtitle is-5 has-text-grey">16th October, 2020</h2><h1 class="title is-3"><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./climate-change.html">Climate change</a></h1>These are notes from &quot;Module 4: Climate Change&quot; of APU's Online Course - Sustainability in the Indian Context</div><nav class="level is-mobile mb-0"><div class="level-left"><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./climate-change.html"><button class="button is-text">Read</button></a></div><div class="level-right"><div class="tags"><span class="tag">apu-sus</span><span class="tag">climate change</span><span class="tag">source</span><span class="tag">sustainability</span></div></div></nav><hr>
+<div><div class="block"><h2 class="title is-4"><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./climate-change.html">Climate change</a></h2><div class="subtitle is-6">16th October, 2020</div><p>These are notes from &quot;Module 4: Climate Change&quot; of APU's Online Course - Sustainability in the Indian Context</p></div><div class="block"><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./climate-change.html"><button class="button is-link is-outlined">Read</button></a></div></div><hr>
 
 
 
-<div class="content is-medium"><nav class="level is-mobile mb-0"><div class="level-left"><h2 class="has-text-grey subtitle mb-0 pr-2 is-6 tc-subtitle tc-created">15th October, 2020</h2></div><div class="level-right"><div class="tags"><span class="tag">3Fs</span><span class="tag">apu-sus</span><span class="tag">food</span><span class="tag">source</span><span class="tag">sustainability</span></div></div></nav><h2 class="title is-4 mt-1"><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./food-and-sustainability-in-india.html">Food and Sustainability in India</a></h2></div>
+<div><div class="block"><h2 class="title is-4"><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./food-and-sustainability-in-india.html">Food and Sustainability in India</a></h2><div class="subtitle is-6">15th October, 2020</div></div></div><hr>
 
-<div class="content is-medium"><nav class="level is-mobile mb-0"><div class="level-left"><h2 class="has-text-grey subtitle mb-0 pr-2 is-6 tc-subtitle tc-created">13th September, 2020</h2></div><div class="level-right"><div class="tags"><span class="tag">apu-sus</span><span class="tag">society</span><span class="tag">source</span><span class="tag">sustainability</span></div></div></nav><h2 class="title is-4 mt-1"><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./population-and-its-effects-on-sustainability.html">Population and its effects on Sustainability</a></h2></div>
+<div><div class="block"><h2 class="title is-4"><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./population-and-its-effects-on-sustainability.html">Population and its effects on Sustainability</a></h2><div class="subtitle is-6">13th September, 2020</div></div></div><hr>
 
-<div class="content is-medium"><nav class="level is-mobile mb-0"><div class="level-left"><h2 class="has-text-grey subtitle mb-0 pr-2 is-6 tc-subtitle tc-created">12th September, 2020</h2></div><div class="level-right"><div class="tags"><span class="tag">apu-sus</span><span class="tag">source</span><span class="tag">sustainability</span></div></div></nav><h2 class="title is-4 mt-1"><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./framing-sustainability-with-the-3fs.html">Framing Sustainability with the 3Fs</a></h2></div>
+<div><div class="block"><h2 class="title is-4"><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./framing-sustainability-with-the-3fs.html">Framing Sustainability with the 3Fs</a></h2><div class="subtitle is-6">12th September, 2020</div></div></div><hr>
 
-<div class="content is-medium"><nav class="level is-mobile mb-0"><div class="level-left"><h2 class="has-text-grey subtitle mb-0 pr-2 is-6 tc-subtitle tc-created">5th July, 2020</h2></div><div class="level-right"><div class="tags"><span class="tag">tiddlywiki</span></div></div></nav><h2 class="title is-4 mt-1"><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./making-a-hello-world-javascript-macro-in-tiddlywiki.html">Making a &quot;Hello World&quot; Javascript Macro in Tiddlywiki</a></h2></div>
+<div><div class="block"><h2 class="title is-4"><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./making-a-hello-world-javascript-macro-in-tiddlywiki.html">Making a &quot;Hello World&quot; Javascript Macro in Tiddlywiki</a></h2><div class="subtitle is-6">5th July, 2020</div></div></div><hr>
 
-<div class="content is-medium"><nav class="level is-mobile mb-0"><div class="level-left"><h2 class="has-text-grey subtitle mb-0 pr-2 is-6 tc-subtitle tc-created">4th July, 2020</h2></div><div class="level-right"><div class="tags"><span class="tag">tiddlywiki</span></div></div></nav><h2 class="title is-4 mt-1"><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./getting-into-tiddlywiki.html">Getting into Tiddlywiki</a></h2></div>
+<div><div class="block"><h2 class="title is-4"><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./getting-into-tiddlywiki.html">Getting into Tiddlywiki</a></h2><div class="subtitle is-6">4th July, 2020</div></div></div><hr>
 
 </div>
 </div>
@@ -126,10 +129,11 @@
 
 
 <footer class="footer">
-  <div class="content has-text-centered">
-    <p>
-Built with <a class="tc-tiddlylink-external" href="https://tiddlywiki.com" rel="noopener noreferrer" target="_blank">Tiddlywiki</a> and <a class="tc-tiddlylink-external" href="https://bulma.io/" rel="noopener noreferrer" target="_blank">Bulma</a>. Hosted on <a class="tc-tiddlylink-external" href="https://pages.github.com/" rel="noopener noreferrer" target="_blank">Github Pages</a>.
+  <div class="columns">
+	  <div class="column is-6-desktop is-8-tablet is-offset-2"><p><p>
+Built with <a class="tc-tiddlylink-external" href="https://tiddlyjam.com" rel="noopener noreferrer" target="_blank">TiddlyJam</a> and <a class="tc-tiddlylink-external" href="https://bulma.io/" rel="noopener noreferrer" target="_blank">Bulma</a>. Hosted on <a class="tc-tiddlylink-external" href="https://pages.github.com/" rel="noopener noreferrer" target="_blank">Github Pages</a>.
     </p>
+		</p></div>
   </div>
 	<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;600&amp;display=swap" rel="stylesheet">
 </footer>

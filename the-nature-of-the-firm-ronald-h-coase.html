@@ -38,26 +38,27 @@
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-171642977-1"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
+
+  function gtag() {
+    dataLayer.push(arguments);
+  }
   gtag('js', new Date());
 
   gtag('config', 'UA-171642977-1');
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const e = Array.prototype.slice.call(document.querySelectorAll(".navbar-burger"), 0);
+    e.length > 0 && e.forEach(e => {
+      e.addEventListener("click", () => {
+        const t = e.dataset.target,
+          a = document.getElementById(t);
+        e.classList.toggle("is-active"), a.classList.toggle("is-active")
+      })
+    })
+  });
 </script>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const e = Array.prototype.slice.call(document.querySelectorAll(".navbar-burger"), 0);
-      e.length > 0 && e.forEach(e => {
-        e.addEventListener("click", () => {
-          const t = e.dataset.target,
-            a = document.getElementById(t);
-          e.classList.toggle("is-active"), a.classList.toggle("is-active")
-        })
-      })
-    });
-  </script>
-  
-<link rel="stylesheet" href="/css/style.css"/>
+<link rel="stylesheet" href="css/style.css" />
 </head>
 
 <body class="tc-body">
@@ -65,7 +66,7 @@
 <nav aria-label="main navigation" class="navbar" role="navigation">
     <div class="navbar-brand">
       <a class="navbar-item" href="/">
-        <img height="36" src="img/logo.png">
+        Adithya's Lair
       </a>
 
       <a aria-expanded="false" aria-label="menu" class="navbar-burger burger" data-target="navbarTW" role="button">
@@ -103,7 +104,13 @@
                 <h1 class="tc-title mt-1">
                     The Nature of the Firm - Ronald H Coase
                 </h1>
-                <p>This is a paper first published in 1937 by Ronald Chase, who won the Nobel Prize for economics for this along with <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./coase-s-theorem.html">Coase's Theorem</a></p><p>If <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./markets.html">Markets</a> are able to efficiently provide for whatever goods and services are needed, why even have <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./corporations.html">Corporations</a>?</p><ul><li><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./transaction-costs-lead-to-creation-of-corporations.html">Transaction costs lead to creation of Corporations</a></li><li><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./organizing-costs-limit-scale-of-corporation.html">Organizing costs limit scale of Corporation</a></li></ul>
+                <p>This is a paper first published in 1937 by Ronald Chase, who won the Nobel Prize for economics for this along with <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./coase-s-theorem.html">Coase's Theorem</a></p><p>If <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./market.html">Market</a> are able to efficiently provide for whatever goods and services are needed, why even have <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./organization.html">Organizations</a> and <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./corporations.html">Corporations</a>?</p><p><div class="tc-blog-extract">
+		<h3><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./transaction-costs-lead-to-creation-of-organizations.html">Transaction costs lead to creation of Organizations</a></h3>
+		<p>The existance of an Organization is required because Transaction costs of the market are often too high to run any operation of decent complexity directly using the free market. <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./transaction-costs-lead-to-creation-of-organizations.html"><em>Read more.</em></a></p>
+	</div></p><p><div class="tc-blog-extract">
+		<h3><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./management-costs-limit-the-size-of-organizations.html">Management costs limit the size of organizations</a></h3>
+		<p>There are two main limitations to the size of organizations - its cost curve and its ability to manage operations effectively. <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./management-costs-limit-the-size-of-organizations.html"><em>Read more.</em></a></p>
+	</div></p>
             </div>
             <div class="tc-blog-footer">
                 <hr class="mb-2">
@@ -121,7 +128,7 @@
                     
                     <div class="level-left">
                         <p class="is-size-7 has-text-grey-light is-small tc-modified tc-subtitle">Last Updated: 
-                            22nd November, 2020
+                            24th March, 2021
                         </p>
                     </div>
                     <div class="level-right">
@@ -155,10 +162,11 @@
 </section>
 
 <footer class="footer">
-  <div class="content has-text-centered">
-    <p>
-Built with <a class="tc-tiddlylink-external" href="https://tiddlywiki.com" rel="noopener noreferrer" target="_blank">Tiddlywiki</a> and <a class="tc-tiddlylink-external" href="https://bulma.io/" rel="noopener noreferrer" target="_blank">Bulma</a>. Hosted on <a class="tc-tiddlylink-external" href="https://pages.github.com/" rel="noopener noreferrer" target="_blank">Github Pages</a>.
+  <div class="columns">
+	  <div class="column is-6-desktop is-8-tablet is-offset-2"><p><p>
+Built with <a class="tc-tiddlylink-external" href="https://tiddlyjam.com" rel="noopener noreferrer" target="_blank">TiddlyJam</a> and <a class="tc-tiddlylink-external" href="https://bulma.io/" rel="noopener noreferrer" target="_blank">Bulma</a>. Hosted on <a class="tc-tiddlylink-external" href="https://pages.github.com/" rel="noopener noreferrer" target="_blank">Github Pages</a>.
     </p>
+		</p></div>
   </div>
 	<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;600&amp;display=swap" rel="stylesheet">
 </footer>

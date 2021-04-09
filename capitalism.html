@@ -38,26 +38,27 @@
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-171642977-1"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
+
+  function gtag() {
+    dataLayer.push(arguments);
+  }
   gtag('js', new Date());
 
   gtag('config', 'UA-171642977-1');
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const e = Array.prototype.slice.call(document.querySelectorAll(".navbar-burger"), 0);
+    e.length > 0 && e.forEach(e => {
+      e.addEventListener("click", () => {
+        const t = e.dataset.target,
+          a = document.getElementById(t);
+        e.classList.toggle("is-active"), a.classList.toggle("is-active")
+      })
+    })
+  });
 </script>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const e = Array.prototype.slice.call(document.querySelectorAll(".navbar-burger"), 0);
-      e.length > 0 && e.forEach(e => {
-        e.addEventListener("click", () => {
-          const t = e.dataset.target,
-            a = document.getElementById(t);
-          e.classList.toggle("is-active"), a.classList.toggle("is-active")
-        })
-      })
-    });
-  </script>
-  
-<link rel="stylesheet" href="/css/style.css"/>
+<link rel="stylesheet" href="css/style.css" />
 </head>
 
 <body class="tc-body">
@@ -65,7 +66,7 @@
 <nav aria-label="main navigation" class="navbar" role="navigation">
     <div class="navbar-brand">
       <a class="navbar-item" href="/">
-        <img height="36" src="img/logo.png">
+        Adithya's Lair
       </a>
 
       <a aria-expanded="false" aria-label="menu" class="navbar-burger burger" data-target="navbarTW" role="button">
@@ -103,7 +104,7 @@
                 <h1 class="tc-title mt-1">
                     Capitalism
                 </h1>
-                <p>Capitalism and <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./markets.html">Market Economy</a> arose in the west out of the <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./feudal-systems.html">Feudal Systems</a> of ownership and the <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./moral-economy.html">Moral Economy</a>. Capitalists employ workers to produce goods for them which they will sell on the open market. The workers get paid a wage in return for their labour.</p><p>Capitalist production is motivated by the pursuit of ever increasing profits - in contrast with the pre-modern, non-capitalist motivation of production for the sake of consumption or earning a livelihood for yourself and your family. It is a way of thinking which prioritizes higher efficiency in production over other factors. It changed the peasant into a worker and the landowners into capitalists. Now, workers' survival depend on how much wages they are able to earn so that they can buy goods and services. It also created class and gender inequalities, since your identity and status in society is now determined by the work you do and the rewards this work brings you (and women were progressively excluded from the workspace). One of the social expressions of this was the emergence of <a class="tc-tiddlylink tc-tiddlylink-missing" href="./unions.html">Unions</a>
+                <p>Capitalism and <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./market.html">Market Economy</a> arose in the west out of the <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./feudal-systems.html">Feudal Systems</a> of ownership and the <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./moral-economy.html">Moral Economy</a>. Capitalists employ workers to produce goods for them which they will sell on the open market. The workers get paid a wage in return for their labour.</p><p>Capitalist production is motivated by the pursuit of ever increasing profits - in contrast with the pre-modern, non-capitalist motivation of production for the sake of consumption or earning a livelihood for yourself and your family. It is a way of thinking which prioritizes higher efficiency in production over other factors. It changed the peasant into a worker and the landowners into capitalists. Now, workers' survival depend on how much wages they are able to earn so that they can buy goods and services. It also created class and gender inequalities, since your identity and status in society is now determined by the work you do and the rewards this work brings you (and women were progressively excluded from the workspace). One of the social expressions of this was the emergence of <a class="tc-tiddlylink tc-tiddlylink-missing" href="./unions.html">Unions</a>
 </p>
             </div>
             <div class="tc-blog-footer">
@@ -166,7 +167,7 @@
                     
                     <div class="level-left">
                         <p class="is-size-7 has-text-grey-light is-small tc-modified tc-subtitle">Last Updated: 
-                            12th March, 2021
+                            16th March, 2021
                         </p>
                     </div>
                     <div class="level-right">
@@ -188,10 +189,11 @@
 </section>
 
 <footer class="footer">
-  <div class="content has-text-centered">
-    <p>
-Built with <a class="tc-tiddlylink-external" href="https://tiddlywiki.com" rel="noopener noreferrer" target="_blank">Tiddlywiki</a> and <a class="tc-tiddlylink-external" href="https://bulma.io/" rel="noopener noreferrer" target="_blank">Bulma</a>. Hosted on <a class="tc-tiddlylink-external" href="https://pages.github.com/" rel="noopener noreferrer" target="_blank">Github Pages</a>.
+  <div class="columns">
+	  <div class="column is-6-desktop is-8-tablet is-offset-2"><p><p>
+Built with <a class="tc-tiddlylink-external" href="https://tiddlyjam.com" rel="noopener noreferrer" target="_blank">TiddlyJam</a> and <a class="tc-tiddlylink-external" href="https://bulma.io/" rel="noopener noreferrer" target="_blank">Bulma</a>. Hosted on <a class="tc-tiddlylink-external" href="https://pages.github.com/" rel="noopener noreferrer" target="_blank">Github Pages</a>.
     </p>
+		</p></div>
   </div>
 	<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;600&amp;display=swap" rel="stylesheet">
 </footer>

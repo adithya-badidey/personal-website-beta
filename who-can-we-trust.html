@@ -38,26 +38,27 @@
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-171642977-1"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
+
+  function gtag() {
+    dataLayer.push(arguments);
+  }
   gtag('js', new Date());
 
   gtag('config', 'UA-171642977-1');
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const e = Array.prototype.slice.call(document.querySelectorAll(".navbar-burger"), 0);
+    e.length > 0 && e.forEach(e => {
+      e.addEventListener("click", () => {
+        const t = e.dataset.target,
+          a = document.getElementById(t);
+        e.classList.toggle("is-active"), a.classList.toggle("is-active")
+      })
+    })
+  });
 </script>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const e = Array.prototype.slice.call(document.querySelectorAll(".navbar-burger"), 0);
-      e.length > 0 && e.forEach(e => {
-        e.addEventListener("click", () => {
-          const t = e.dataset.target,
-            a = document.getElementById(t);
-          e.classList.toggle("is-active"), a.classList.toggle("is-active")
-        })
-      })
-    });
-  </script>
-  
-<link rel="stylesheet" href="/css/style.css"/>
+<link rel="stylesheet" href="css/style.css" />
 </head>
 
 <body class="tc-body">
@@ -65,7 +66,7 @@
 <nav aria-label="main navigation" class="navbar" role="navigation">
     <div class="navbar-brand">
       <a class="navbar-item" href="/">
-        <img height="36" src="img/logo.png">
+        Adithya's Lair
       </a>
 
       <a aria-expanded="false" aria-label="menu" class="navbar-burger burger" data-target="navbarTW" role="button">
@@ -103,7 +104,7 @@
                 <h1 class="tc-title mt-1">
                     Who can we trust?
                 </h1>
-                <p>Before the <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./currency.html">Currency</a> based <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./markets.html">market</a>-economy came into being, society was organized by a mixture of <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./moral-economy.html">Moral Economy</a>, <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./caste-system.html">Caste System</a>/<a class="tc-tiddlylink tc-tiddlylink-resolves" href="./family-system.html">Family System</a>, <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./local-governments.html">Local governments</a> and Smaller, localized markets. Is this a step forward?</p><p>Today, we trust the market to fulfill our needs. Currency is a standardized unit of value in this market.  We dont need a moral economy to police transactions, markets determines the rate of exchange and if there is sufficient <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./competition-and-fairness-in-markets.html">competition, it is fair</a>. We do not need the rigid caste systems for the purpose of defining our place in society, the amount of currency we control handles that part. Nor do we keed large families to distribute risk and effort - currency can buy goods/services and can act as a cushion for risk. As long as we have currency, the current system takes care of our needs.</p><p>Governments play their part in <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./markets-need-upkeep-and-government.html">upkeep and governance of markets</a>.</p><h2 class="">Who controls Currency?</h2><p>The supply of currency is controlled by the Government and banks (and counterfieters).  Whoever controls the currency, controls the markets and whoever is dependant on it. A simple illustration of the same:</p><blockquote class="tc-quote"><p>I own the currency supply. If I print more of the same currency, I can pay more of the currency in exchange for a good, causing inflation.
+                <p>Before the <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./currency.html">Currency</a> based <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./market.html">market</a>-economy came into being, society was organized by a mixture of <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./moral-economy.html">Moral Economy</a>, <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./caste-system.html">Caste System</a>/<a class="tc-tiddlylink tc-tiddlylink-resolves" href="./family-system.html">Family System</a>, <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./local-governments.html">Local governments</a> and Smaller, localized markets. Is this a step forward?</p><p>Today, we trust the market to fulfill our needs. Currency is a standardized unit of value in this market.  We dont need a moral economy to police transactions, markets determines the rate of exchange and if there is sufficient <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./competition-and-fairness-in-markets.html">competition, it is fair</a>. We do not need the rigid caste systems for the purpose of defining our place in society, the amount of currency we control handles that part. Nor do we keed large families to distribute risk and effort - currency can buy goods/services and can act as a cushion for risk. As long as we have currency, the current system takes care of our needs.</p><p>Governments play their part in <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./markets-need-upkeep-and-government.html">upkeep and governance of markets</a>.</p><h2 class="">Who controls Currency?</h2><p>The supply of currency is controlled by the Government and banks (and counterfieters).  Whoever controls the currency, controls the markets and whoever is dependant on it. A simple illustration of the same:</p><blockquote class="tc-quote"><p>I own the currency supply. If I print more of the same currency, I can pay more of the currency in exchange for a good, causing inflation.
 </p></blockquote><p>The problem is that these institutions are controlled by humans, usually the elite. </p>
             </div>
             <div class="tc-blog-footer">
@@ -122,7 +123,7 @@
                     
                     <div class="level-left">
                         <p class="is-size-7 has-text-grey-light is-small tc-modified tc-subtitle">Last Updated: 
-                            22nd November, 2020
+                            16th March, 2021
                         </p>
                     </div>
                     <div class="level-right">
@@ -152,10 +153,11 @@
 </section>
 
 <footer class="footer">
-  <div class="content has-text-centered">
-    <p>
-Built with <a class="tc-tiddlylink-external" href="https://tiddlywiki.com" rel="noopener noreferrer" target="_blank">Tiddlywiki</a> and <a class="tc-tiddlylink-external" href="https://bulma.io/" rel="noopener noreferrer" target="_blank">Bulma</a>. Hosted on <a class="tc-tiddlylink-external" href="https://pages.github.com/" rel="noopener noreferrer" target="_blank">Github Pages</a>.
+  <div class="columns">
+	  <div class="column is-6-desktop is-8-tablet is-offset-2"><p><p>
+Built with <a class="tc-tiddlylink-external" href="https://tiddlyjam.com" rel="noopener noreferrer" target="_blank">TiddlyJam</a> and <a class="tc-tiddlylink-external" href="https://bulma.io/" rel="noopener noreferrer" target="_blank">Bulma</a>. Hosted on <a class="tc-tiddlylink-external" href="https://pages.github.com/" rel="noopener noreferrer" target="_blank">Github Pages</a>.
     </p>
+		</p></div>
   </div>
 	<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;600&amp;display=swap" rel="stylesheet">
 </footer>

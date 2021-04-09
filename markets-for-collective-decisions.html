@@ -19,45 +19,46 @@
   <link id="faviconLink" rel="shortcut icon" href="/favicon.ico">
 
 <title>Markets for collective decisions ~ Adithya's Lair</title>
-<meta name="description" content="Currently, we dont have access to the Markets where political decisions are taken. They are very abstract and remote. We vote once in a few years, and we exercise a choice but nothing more. This market exists in different forms though:">
+<meta name="description" content="Currently, we dont have access to the Market where political decisions are taken. They are very abstract and remote. We vote once in a few years, and we exercise a choice but nothing more. This market exists in different forms though:">
 
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://adithyab.in/markets-for-collective-decisions" />
 <meta property="og:title" content="Markets for collective decisions ~ Adithya's Lair" />
 <meta property="og:image" content="" />
-<meta property="og:description" content="Currently, we dont have access to the Markets where political decisions are taken. They are very abstract and remote. We vote once in a few years, and we exercise a choice but nothing more. This market exists in different forms though:" />
+<meta property="og:description" content="Currently, we dont have access to the Market where political decisions are taken. They are very abstract and remote. We vote once in a few years, and we exercise a choice but nothing more. This market exists in different forms though:" />
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@adithya_badidey">
 <meta name="twitter:creator" content="@adithya_badidey">
 <meta name="twitter:title" content="Markets for collective decisions ~ Adithya's Lair" />
-<meta name="twitter:description" content="Currently, we dont have access to the Markets where political decisions are taken. They are very abstract and remote. We vote once in a few years, and we exercise a choice but nothing more. This market exists in different forms though:" />
+<meta name="twitter:description" content="Currently, we dont have access to the Market where political decisions are taken. They are very abstract and remote. We vote once in a few years, and we exercise a choice but nothing more. This market exists in different forms though:" />
 <meta name="twitter:image" content="" />
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-171642977-1"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
+
+  function gtag() {
+    dataLayer.push(arguments);
+  }
   gtag('js', new Date());
 
   gtag('config', 'UA-171642977-1');
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const e = Array.prototype.slice.call(document.querySelectorAll(".navbar-burger"), 0);
+    e.length > 0 && e.forEach(e => {
+      e.addEventListener("click", () => {
+        const t = e.dataset.target,
+          a = document.getElementById(t);
+        e.classList.toggle("is-active"), a.classList.toggle("is-active")
+      })
+    })
+  });
 </script>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const e = Array.prototype.slice.call(document.querySelectorAll(".navbar-burger"), 0);
-      e.length > 0 && e.forEach(e => {
-        e.addEventListener("click", () => {
-          const t = e.dataset.target,
-            a = document.getElementById(t);
-          e.classList.toggle("is-active"), a.classList.toggle("is-active")
-        })
-      })
-    });
-  </script>
-  
-<link rel="stylesheet" href="/css/style.css"/>
+<link rel="stylesheet" href="css/style.css" />
 </head>
 
 <body class="tc-body">
@@ -65,7 +66,7 @@
 <nav aria-label="main navigation" class="navbar" role="navigation">
     <div class="navbar-brand">
       <a class="navbar-item" href="/">
-        <img height="36" src="img/logo.png">
+        Adithya's Lair
       </a>
 
       <a aria-expanded="false" aria-label="menu" class="navbar-burger burger" data-target="navbarTW" role="button">
@@ -103,7 +104,7 @@
                 <h1 class="tc-title mt-1">
                     Markets for collective decisions
                 </h1>
-                <p>Currently, we dont have access to the <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./markets.html">Markets</a> where political decisions are taken. They are very abstract and remote. We vote once in a few years, and we exercise a choice but nothing more. This market exists in different forms though:</p><ul><li>The lobbying industry in the US is a market of Money and Congressional votes.</li><li>Parties play this game of buying MPs and MLAs with money in India</li></ul><p>To create a market where influence in collective decisions can be exchanged for votes, we have to give every individual the ability to exchange more votes for more influence in decisions they care about. We also should allow individuals to not pay votes for decisions they dont care for. </p><p>This will allow for price discovery in the market too. Since decisions which more people care about will require more votes to pass - for or against.
+                <p>Currently, we dont have access to the <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./market.html">Market</a> where political decisions are taken. They are very abstract and remote. We vote once in a few years, and we exercise a choice but nothing more. This market exists in different forms though:</p><ul><li>The lobbying industry in the US is a market of Money and Congressional votes.</li><li>Parties play this game of buying MPs and MLAs with money in India</li></ul><p>To create a market where influence in collective decisions can be exchanged for votes, we have to give every individual the ability to exchange more votes for more influence in decisions they care about. We also should allow individuals to not pay votes for decisions they dont care for. </p><p>This will allow for price discovery in the market too. Since decisions which more people care about will require more votes to pass - for or against.
 </p>
             </div>
             <div class="tc-blog-footer">
@@ -130,7 +131,7 @@
                     
                     <div class="level-left">
                         <p class="is-size-7 has-text-grey-light is-small tc-modified tc-subtitle">Last Updated: 
-                            30th July, 2020
+                            16th March, 2021
                         </p>
                     </div>
                     <div class="level-right">
@@ -156,10 +157,11 @@
 </section>
 
 <footer class="footer">
-  <div class="content has-text-centered">
-    <p>
-Built with <a class="tc-tiddlylink-external" href="https://tiddlywiki.com" rel="noopener noreferrer" target="_blank">Tiddlywiki</a> and <a class="tc-tiddlylink-external" href="https://bulma.io/" rel="noopener noreferrer" target="_blank">Bulma</a>. Hosted on <a class="tc-tiddlylink-external" href="https://pages.github.com/" rel="noopener noreferrer" target="_blank">Github Pages</a>.
+  <div class="columns">
+	  <div class="column is-6-desktop is-8-tablet is-offset-2"><p><p>
+Built with <a class="tc-tiddlylink-external" href="https://tiddlyjam.com" rel="noopener noreferrer" target="_blank">TiddlyJam</a> and <a class="tc-tiddlylink-external" href="https://bulma.io/" rel="noopener noreferrer" target="_blank">Bulma</a>. Hosted on <a class="tc-tiddlylink-external" href="https://pages.github.com/" rel="noopener noreferrer" target="_blank">Github Pages</a>.
     </p>
+		</p></div>
   </div>
 	<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;600&amp;display=swap" rel="stylesheet">
 </footer>

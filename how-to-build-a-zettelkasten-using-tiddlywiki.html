@@ -38,26 +38,27 @@
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-171642977-1"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
+
+  function gtag() {
+    dataLayer.push(arguments);
+  }
   gtag('js', new Date());
 
   gtag('config', 'UA-171642977-1');
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const e = Array.prototype.slice.call(document.querySelectorAll(".navbar-burger"), 0);
+    e.length > 0 && e.forEach(e => {
+      e.addEventListener("click", () => {
+        const t = e.dataset.target,
+          a = document.getElementById(t);
+        e.classList.toggle("is-active"), a.classList.toggle("is-active")
+      })
+    })
+  });
 </script>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const e = Array.prototype.slice.call(document.querySelectorAll(".navbar-burger"), 0);
-      e.length > 0 && e.forEach(e => {
-        e.addEventListener("click", () => {
-          const t = e.dataset.target,
-            a = document.getElementById(t);
-          e.classList.toggle("is-active"), a.classList.toggle("is-active")
-        })
-      })
-    });
-  </script>
-  
-<link rel="stylesheet" href="/css/style.css"/>
+<link rel="stylesheet" href="css/style.css" />
 </head>
 
 <body class="tc-body">
@@ -65,7 +66,7 @@
 <nav aria-label="main navigation" class="navbar" role="navigation">
     <div class="navbar-brand">
       <a class="navbar-item" href="/">
-        <img height="36" src="img/logo.png">
+        Adithya's Lair
       </a>
 
       <a aria-expanded="false" aria-label="menu" class="navbar-burger burger" data-target="navbarTW" role="button">
@@ -105,8 +106,8 @@
                 </h1>
                 <p>I have found tiddlywiki to be an effective tool to build a Zettelkasten. I will try to describe some of my thoughts behind it here.</p><p>There are three types of notes</p><ul><li>Fleeting notes: These notes also those not captured on the TiddlyWiki. They are captured elsewhere with the intention of converting into a permanent note.</li><li>Bibliographic notes : I use the <span class="tc-tag-list-item">
 <span class="tc-tag-label tc-btn-invisible" draggable="true" style="background-color:;
-fill:#073642;
-color:#073642;">
+fill:#383e49;
+color:#383e49;">
 source
 </span>
 <span class="tc-drop-down tc-reveal" hidden="true"></span></span> tag for this</li><li>Permanent notes: These form the bulk of the Zettelkasten</li></ul><h2 class="">How to take notes</h2><ul><li>When writing notes, start from the Source.<ul><li>Make a note tagged source, enter the details of the source.</li><li>Each idea from this source should be linked from here.</li></ul></li><li>Capture each idea as a seperate note in your TiddlyWiki.</li><li>Title with the least words with which you describe the idea</li><li>Add the appropriate tags</li><li>First paragraph of the note should summarize the idea.</li><li>Write in full sentences and with good grammer.<ul><li>Your notes should be as short and simple as possible and no shorter.</li><li>Notes in a topic new to you will be longer - its fine.</li><li>You are not writing this for yourself, but for your future self.</li></ul></li><li>After you insert a note, add more notes to connect that note to other notes.<ul><li>How does this new idea connect, support, contradict, correct or add to other notes?</li><li>Backlinks plugin handles the work of adding references for us.</li><li>Think of the contexts under which you might want to stumble across your new idea.</li></ul></li><li>Read more to fill in the gaps and develop your arguments<ul><li>Be open to change.</li></ul></li><li>Build and alter the system to suit your needs - <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./a-trusted-system-sets-you-free.html">A trusted system sets you free</a></li><li>$$$</li></ul>
@@ -173,10 +174,11 @@ source
 </section>
 
 <footer class="footer">
-  <div class="content has-text-centered">
-    <p>
-Built with <a class="tc-tiddlylink-external" href="https://tiddlywiki.com" rel="noopener noreferrer" target="_blank">Tiddlywiki</a> and <a class="tc-tiddlylink-external" href="https://bulma.io/" rel="noopener noreferrer" target="_blank">Bulma</a>. Hosted on <a class="tc-tiddlylink-external" href="https://pages.github.com/" rel="noopener noreferrer" target="_blank">Github Pages</a>.
+  <div class="columns">
+	  <div class="column is-6-desktop is-8-tablet is-offset-2"><p><p>
+Built with <a class="tc-tiddlylink-external" href="https://tiddlyjam.com" rel="noopener noreferrer" target="_blank">TiddlyJam</a> and <a class="tc-tiddlylink-external" href="https://bulma.io/" rel="noopener noreferrer" target="_blank">Bulma</a>. Hosted on <a class="tc-tiddlylink-external" href="https://pages.github.com/" rel="noopener noreferrer" target="_blank">Github Pages</a>.
     </p>
+		</p></div>
   </div>
 	<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;600&amp;display=swap" rel="stylesheet">
 </footer>

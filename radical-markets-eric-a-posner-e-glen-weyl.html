@@ -38,26 +38,27 @@
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-171642977-1"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
+
+  function gtag() {
+    dataLayer.push(arguments);
+  }
   gtag('js', new Date());
 
   gtag('config', 'UA-171642977-1');
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const e = Array.prototype.slice.call(document.querySelectorAll(".navbar-burger"), 0);
+    e.length > 0 && e.forEach(e => {
+      e.addEventListener("click", () => {
+        const t = e.dataset.target,
+          a = document.getElementById(t);
+        e.classList.toggle("is-active"), a.classList.toggle("is-active")
+      })
+    })
+  });
 </script>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const e = Array.prototype.slice.call(document.querySelectorAll(".navbar-burger"), 0);
-      e.length > 0 && e.forEach(e => {
-        e.addEventListener("click", () => {
-          const t = e.dataset.target,
-            a = document.getElementById(t);
-          e.classList.toggle("is-active"), a.classList.toggle("is-active")
-        })
-      })
-    });
-  </script>
-  
-<link rel="stylesheet" href="/css/style.css"/>
+<link rel="stylesheet" href="css/style.css" />
 </head>
 
 <body class="tc-body">
@@ -65,7 +66,7 @@
 <nav aria-label="main navigation" class="navbar" role="navigation">
     <div class="navbar-brand">
       <a class="navbar-item" href="/">
-        <img height="36" src="img/logo.png">
+        Adithya's Lair
       </a>
 
       <a aria-expanded="false" aria-label="menu" class="navbar-burger burger" data-target="navbarTW" role="button">
@@ -103,7 +104,7 @@
                 <h1 class="tc-title mt-1">
                     Radical Markets - Eric A. Posner, E. Glen Weyl
                 </h1>
-                <p>Authors: <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./glen-weyl.html">Glen Weyl</a> and Eric Posner</p><h2 class="">The Premise</h2><ul><li><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./ideal-market.html">Ideal Market</a> is the the best <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./ways-to-organize-society.html">way to arrange a society</a></li><li>The problems with existing societal arrangement (<a class="tc-tiddlylink tc-tiddlylink-resolves" href="./capitalism.html">Capitalism</a>) and alternatives (leftist ideas) are:<ul><li><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./capitalism-doesnt-have-free-markets.html">Capitalism doesnt have free markets</a></li><li>Growth is stagnating under capitalism </li><li><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./capitalism-causes-huge-inequality.html">Capitalism causes huge inequality</a></li><li><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./flaws-of-central-planning.html">Central Planning</a> is prone to corruption</li><li><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./the-rise-of-the-right-in-21st-century.html">The rise of the right in 21st Century</a></li></ul></li></ul><h2 class="">Context/Preface</h2><ul><li><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./moral-economy.html">Moral Economy</a> has been replaced by a Market Economy</li><li>This book draws from the work of <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./adam-smith.html">Adam Smith</a> and radical economists like <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./henry-george.html">Henry George</a>, one of the most widely read economists of all time. <ul><li>Adam Smith originated the idea that if each person acts for their own personal good (while not harming others) it would lead to public good.</li><li>Henry George recognized that Private property is a monopoly and suggested a tax scheme that would create a <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./common-ownership.html">Common Ownership</a> structure.</li></ul></li><li><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./william-spencer-vickrey.html">William Spencer Vickrey</a> was a follower of Henry George <ul><li>He presented a paper call Counterspeculation, Auctions and Competitive Sealed Tenders - a paper by William Spencer Vickerey where he presented <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./auctions.html">Auctions</a> as a means to solve major societal problems.</li><li>Helped found the field of economics called <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./mechanism-design.html">Mechanism Design</a></li></ul></li></ul><h2 class="">Chapter 1 - <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./private-property-is-a-monopoly.html">Private Property is a monopoly</a></h2><ul><li><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./allocation-efficiency.html">Allocation Efficiency</a> and <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./investment-efficiency.html">Investment Efficiency</a> are important</li><li><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./transaction-costs-lead-to-creation-of-corporations.html">Transaction costs lead to creation of Corporations</a> because of Allocation Inefficiency</li><li><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./corporations-as-a-way-to-organize-society.html">Corporations as a way to organize society</a></li><li><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./henry-george.html">Henry George</a>'s Land tax</li><li><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./role-of-government-under-capitalism.html">Role of government under Capitalism</a></li><li><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./flaws-of-central-planning.html">Flaws of Central Planning</a></li><li><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./coase-s-theorem.html">Coase's Theorem</a></li><li><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./vickerey-commons.html">Vickerey Commons</a></li><li><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./texas-shootout.html">Texas Shootout</a></li><li><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./partial-common-ownership-retains-investment-efficiency.html">Partial Common Ownership retains Investment Efficiency</a></li><li><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./common-ownership-self-assessed-tax-cost.html">Common Ownership Self-assessed Tax (COST)</a></li></ul><h2 class="">Chapter 2 - Radical Democracy</h2><ul><li><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./democracy-and-the-balance-of-power.html">Democracy and the balance of power</a></li><li><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./gridlock.html">Gridlock</a></li><li><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./judiciary-is-the-rule-of-elites.html">Judiciary is the rule of elites</a></li><li><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./jury-theorem-or-the-wisdom-of-the-masses.html">Jury theorem or the wisdom of the masses</a></li><li><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./arrow-s-impossiblity-theorem.html">Arrow's Impossiblity Theorem</a></li><li><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./majority-cycling.html">Majority Cycling</a></li><li><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./strategic-voting.html">Strategic Voting</a></li><li><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./agenda-manipulation.html">Agenda Manipulation</a></li><li><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./markets-for-collective-decisions.html">Markets for collective decisions</a></li><li><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./samuelson-s-condition.html">Samuelson's Condition</a></li><li><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./quadratic-voting.html">Quadratic Voting</a></li></ul>
+                <p>Authors: <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./glen-weyl.html">Glen Weyl</a> and Eric Posner</p><h2 class="">The Premise</h2><ul><li><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./ideal-market.html">Ideal Market</a> is the the best <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./ways-to-organize-society.html">way to arrange a society</a></li><li>The problems with existing societal arrangement (<a class="tc-tiddlylink tc-tiddlylink-resolves" href="./capitalism.html">Capitalism</a>) and alternatives (leftist ideas) are:<ul><li><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./capitalism-doesnt-have-free-markets.html">Capitalism doesnt have free markets</a></li><li>Growth is stagnating under capitalism </li><li><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./capitalism-causes-huge-inequality.html">Capitalism causes huge inequality</a></li><li><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./flaws-of-central-planning.html">Central Planning</a> is prone to corruption</li><li><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./the-rise-of-the-right-in-21st-century.html">The rise of the right in 21st Century</a></li></ul></li></ul><h2 class="">Context/Preface</h2><ul><li><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./moral-economy.html">Moral Economy</a> has been replaced by a Market Economy</li><li>This book draws from the work of <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./adam-smith.html">Adam Smith</a> and radical economists like <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./henry-george.html">Henry George</a>, one of the most widely read economists of all time. <ul><li>Adam Smith originated the idea that if each person acts for their own personal good (while not harming others) it would lead to public good.</li><li>Henry George recognized that Private property is a monopoly and suggested a tax scheme that would create a <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./common-ownership.html">Common Ownership</a> structure.</li></ul></li><li><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./william-spencer-vickrey.html">William Spencer Vickrey</a> was a follower of Henry George <ul><li>He presented a paper call Counterspeculation, Auctions and Competitive Sealed Tenders - a paper by William Spencer Vickerey where he presented <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./auctions.html">Auctions</a> as a means to solve major societal problems.</li><li>Helped found the field of economics called <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./mechanism-design.html">Mechanism Design</a></li></ul></li></ul><h2 class="">Chapter 1 - <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./private-property-is-a-monopoly.html">Private Property is a monopoly</a></h2><ul><li><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./allocation-efficiency.html">Allocation Efficiency</a> and <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./investment-efficiency.html">Investment Efficiency</a> are important</li><li><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./transaction-costs-lead-to-creation-of-organizations.html">Transaction costs lead to creation of Organizations</a> because of Allocation Inefficiency</li><li><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./corporations-as-a-way-to-organize-society.html">Corporations as a way to organize society</a></li><li><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./henry-george.html">Henry George</a>'s Land tax</li><li><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./role-of-government-under-capitalism.html">Role of government under Capitalism</a></li><li><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./flaws-of-central-planning.html">Flaws of Central Planning</a></li><li><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./coase-s-theorem.html">Coase's Theorem</a></li><li><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./vickerey-commons.html">Vickerey Commons</a></li><li><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./texas-shootout.html">Texas Shootout</a></li><li><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./partial-common-ownership-retains-investment-efficiency.html">Partial Common Ownership retains Investment Efficiency</a></li><li><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./common-ownership-self-assessed-tax-cost.html">Common Ownership Self-assessed Tax (COST)</a></li></ul><h2 class="">Chapter 2 - Radical Democracy</h2><ul><li><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./democracy-and-the-balance-of-power.html">Democracy and the balance of power</a></li><li><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./gridlock.html">Gridlock</a></li><li><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./judiciary-is-the-rule-of-elites.html">Judiciary is the rule of elites</a></li><li><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./jury-theorem-or-the-wisdom-of-the-masses.html">Jury theorem or the wisdom of the masses</a></li><li><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./arrow-s-impossiblity-theorem.html">Arrow's Impossiblity Theorem</a></li><li><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./majority-cycling.html">Majority Cycling</a></li><li><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./strategic-voting.html">Strategic Voting</a></li><li><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./agenda-manipulation.html">Agenda Manipulation</a></li><li><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./markets-for-collective-decisions.html">Markets for collective decisions</a></li><li><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./samuelson-s-condition.html">Samuelson's Condition</a></li><li><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./quadratic-voting.html">Quadratic Voting</a></li></ul>
             </div>
             <div class="tc-blog-footer">
                 <hr class="mb-2">
@@ -129,7 +130,7 @@
                     
                     <div class="level-left">
                         <p class="is-size-7 has-text-grey-light is-small tc-modified tc-subtitle">Last Updated: 
-                            18th September, 2020
+                            16th March, 2021
                         </p>
                     </div>
                     <div class="level-right">
@@ -159,10 +160,11 @@
 </section>
 
 <footer class="footer">
-  <div class="content has-text-centered">
-    <p>
-Built with <a class="tc-tiddlylink-external" href="https://tiddlywiki.com" rel="noopener noreferrer" target="_blank">Tiddlywiki</a> and <a class="tc-tiddlylink-external" href="https://bulma.io/" rel="noopener noreferrer" target="_blank">Bulma</a>. Hosted on <a class="tc-tiddlylink-external" href="https://pages.github.com/" rel="noopener noreferrer" target="_blank">Github Pages</a>.
+  <div class="columns">
+	  <div class="column is-6-desktop is-8-tablet is-offset-2"><p><p>
+Built with <a class="tc-tiddlylink-external" href="https://tiddlyjam.com" rel="noopener noreferrer" target="_blank">TiddlyJam</a> and <a class="tc-tiddlylink-external" href="https://bulma.io/" rel="noopener noreferrer" target="_blank">Bulma</a>. Hosted on <a class="tc-tiddlylink-external" href="https://pages.github.com/" rel="noopener noreferrer" target="_blank">Github Pages</a>.
     </p>
+		</p></div>
   </div>
 	<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;600&amp;display=swap" rel="stylesheet">
 </footer>
