@@ -1,0 +1,176 @@
+
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+  <meta name="generator" content="TiddlyWiki" />
+  <meta name="tiddlywiki-version" content="5.1.23" />
+
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="mobile-web-app-capable" content="yes" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <meta name="format-detection" content="telephone=no">
+	<script></script>
+  <link id="faviconLink" rel="shortcut icon" href="/favicon.ico">
+
+<title>Markov Decision Processes ~ Adithya's Lair</title>
+<meta name="description" content="This is a review of my notes on MDPs from CS6300 Artificial Intelligence.">
+
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://adithyab.in/markov-decision-processes" />
+<meta property="og:title" content="Markov Decision Processes ~ Adithya's Lair" />
+<meta property="og:image" content="" />
+<meta property="og:description" content="This is a review of my notes on MDPs from CS6300 Artificial Intelligence." />
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@adithya_badidey">
+<meta name="twitter:creator" content="@adithya_badidey">
+<meta name="twitter:title" content="Markov Decision Processes ~ Adithya's Lair" />
+<meta name="twitter:description" content="This is a review of my notes on MDPs from CS6300 Artificial Intelligence." />
+<meta name="twitter:image" content="" />
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-171642977-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag('js', new Date());
+
+  gtag('config', 'UA-171642977-1');
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const e = Array.prototype.slice.call(document.querySelectorAll(".navbar-burger"), 0);
+    e.length > 0 && e.forEach(e => {
+      e.addEventListener("click", () => {
+        const t = e.dataset.target,
+          a = document.getElementById(t);
+        e.classList.toggle("is-active"), a.classList.toggle("is-active")
+      })
+    })
+  });
+</script>
+
+<link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body class="tc-body">
+  
+<nav aria-label="main navigation" class="navbar" role="navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="/">
+        Adithya's Lair
+      </a>
+
+      <a aria-expanded="false" aria-label="menu" class="navbar-burger burger" data-target="navbarTW" role="button">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+
+    <div class="navbar-menu" id="navbarTW">
+      <div class="navbar-end">
+<a class="navbar-item" href="/">Home</a>
+<a class="navbar-item" href="/blog">Blog</a>
+<a class="navbar-item" href="/portfolio">Portfolio</a>
+     </div>
+    </div>
+  </nav>
+
+
+<section class="section">
+    <div class="columns mt-6">
+        <div class="column is-5-fullhd is-6-desktop is-8-tablet is-offset-2">
+            <div class="content tc-blog">
+                
+                    <article class="message is-small">
+                        <div class="message-body">
+                            This note is a part of my Zettelkasten. What is below might not be complete or accurate. It
+                            is also likely to change often.
+                        </div>
+                    </article>
+                
+                <span class="has-text-grey-light is-small tc-subtitle tc-created">
+                    8th June, 2021
+                </span>
+                <h1 class="tc-title mt-1">
+                    Markov Decision Processes
+                </h1>
+                <p>This is a review of my notes on MDPs from <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./cs6300-artificial-intelligence-notes-review.html">CS6300 Artificial Intelligence</a>. </p><p>Markov Decision Processes are a family of non-deterministic search problems. They are characterized by the following properties:</p><ul><li><strong>Fully observable</strong> - There is no uncertainity with the environment</li><li><strong>Stochastic Environment</strong> - Actions by the agent doesnt solely determine the outcome. There can be other factors</li><li><strong>Markovian Transition Model</strong> - The outcome of an action at a state is dependent only on the current state and the action - not on past states. </li><li><strong>Additive Rewards</strong> - The rewards add up.</li></ul><p>The solution to a MDP is usually a policy - which can determine action given any state. The optimal policy is the one gives the maximum expected utility. </p><h3 class="">Environment: Stationary or Dynamic?</h3><p>If there is an environment which changes with time, there will not be a single solution which is optimal. The optimal policy will have to change with time too. </p><p>For purposes of simplicity (in this course), we assume that the environment is static.</p><h3 class="">Rewards and Utility</h3><p>Utility is the sum of rewards of all states/transitions from the start to the end. Expected utility is the expectation of the value of utility (since its a stochastic environment and exact utility cannot be calculated)</p><p>If there is a static environment and additive rewards, the expected utility could add up to infinity. In that case, all decision making will breakdown. To prevent this, we have some possible solutions:</p><ul><li>Finite horizons - terminate the search after n steps. However, this results in a non-stationary environment since time becomes a factor in the utility. Still usable in certain situations.</li><li>Inevitable terminal states - there is some assurance that the terminal state will be reached in some finite n steps. All roads lead to termination</li><li>Discounted utility - U(r<sub>0</sub>, r<sub>1</sub>, r<sub>2</sub> ...) = r<sub>0</sub> + γ.r<sub>1</sub> + γ<sup>2</sup>r<sub>2</sub> ... where 0&lt;γ&lt;1. This ensures that as n increases to infinity, the additional utility decreases to 0.</li></ul><p>Using discounted utility, the expected optimal utility turns out to be E(Sum<sub>t</sub>( γ<sup>t</sup> . r<sub>t</sub> )). The optimal policy is argmax(V(s)) - the action with maximum expected utility. If 0&lt;γ&lt;1, this policy is independent of starting state since the utility will just converges at t=infinity.</p><h2 class="">Bellmans Equations and Policy derivation</h2><p>Bellmans Equations are a set of iterative equations to solve for expected rewards.</p><blockquote><div>Q<sup>*</sup>(state, action) = Sum<sub>s'</sub> [ T(s,a,s')(R(s,a,s') + γV<sup>*</sup>(s')) ] </div></blockquote><p>where</p><ul><li>T(s,a,s') is the probability of transitioning from s to s' on action a</li><li>R(s,a,s') is the reward of transitioning from s to s' using action a</li><li>V<sup>*</sup>(s') is the best known expected Utility at state s'</li><li>γ is the discounting factor</li></ul><blockquote><div>V<sup>*</sup>(state) = max<sub>action</sub> (Q<sup>*</sup>(state, action))</div></blockquote><p>Given a Markov Decision Process, and using the bellman's equations, there are two primary ways to figure out the optimal policy. These are Value iteration and Policy Iteration.</p><h3 class="">Value Iteration and Policy Extraction</h3><p>The value iteration algorithms, in simple words, finds the converged (or close to converged) utility of each state by iterating using the bellman's equations. </p><ul><li>Initialize expected value of each state V<sub>s</sub> = 0</li><li>In each iteration, use the values of previous iteration to recalculate</li><li>Continue iterating till the values converge (difference in values in succesive iterations is less than a threshold)</li></ul><p>Policy extraction is basically:</p><blockquote><div>policy(s) = argmax<sub>a</sub>(Q(s,a)) </div></blockquote><p>Using the V<sup>*</sup> of the last iteration.</p><h3 class="">Policy Iteration</h3><p>Policy Iteration is a modified of value iteration which converges much faster.</p><ol><li>Initialize to a random policy pi</li><li>Calculate converged utility value of all the states under pi (using bellman's equations)</li><li>For each state, check if there is a non-policy action which leads to a higher utility.<ul><li>If yes, change policy pi to contain the new action</li></ul></li><li>If policy pi was updated in the previous step, rerun from step 2</li><li>If policy pi is unchanged, that is our solution</li></ol><p>If the environment is known fully, the situation is simple as we see above. In case the environment is not known or understood, we need to utilize <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./reinforcement-learning.html">Reinforcement Learning</a>.
+</p>
+            </div>
+            <div class="tc-blog-footer">
+                <hr class="mb-2">
+                <nav class="tc-backlinks mb-4">
+                    <h2 class="backlinks-header">
+                        
+                            This page has been linked from:
+                        
+                    </h2>
+                    <div class="content">
+                        <ul>
+                            
+                                <li>
+                                    <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./reinforcement-learning.html">
+                                        Reinforcement Learning
+                                    </a>
+                                </li>
+                            
+                                <li>
+                                    <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./search-algorithms.html">
+                                        Search Algorithms
+                                    </a>
+                                </li>
+                            
+                        </ul>
+                    </div>
+                </nav>
+                <nav class="level is-mobile">
+                    
+                    <div class="level-left">
+                        <p class="is-size-7 has-text-grey-light is-small tc-modified tc-subtitle">Last Updated: 
+                            20th August, 2021
+                        </p>
+                    </div>
+                    <div class="level-right">
+                        <div class="tags">
+                            
+                                <span class="tag">
+                                    AI
+                                </span>
+                            
+                                <span class="tag">
+                                    algorithms
+                                </span>
+                            
+                        </div>
+                    </div>
+                </nav>
+                <hr>
+            </div>
+            <div id="disqus_thread"></div>
+            <noscript>Please enable JavaScript to view the comments.</noscript>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+  <div class="columns">
+	  <div class="column is-6-desktop is-8-tablet is-offset-2"><p><p>
+Built with <a class="tc-tiddlylink-external" href="https://tiddlyjam.com" rel="noopener noreferrer" target="_blank">TiddlyJam</a> and <a class="tc-tiddlylink-external" href="https://bulma.io/" rel="noopener noreferrer" target="_blank">Bulma</a>. Hosted on <a class="tc-tiddlylink-external" href="https://pages.github.com/" rel="noopener noreferrer" target="_blank">Github Pages</a>.
+    </p>
+		</p></div>
+  </div>
+	<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;600&amp;display=swap" rel="stylesheet">
+</footer>
+
+</body>
+</html>

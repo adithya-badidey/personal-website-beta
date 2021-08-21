@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<rss version="2.0"> <channel> 
+  <title>Adithya's Lair</title> 
+  <link>https://adithyab.in</link>
+   <atom:link href="https://adithyab.in/rss.xml" rel="self" type="application/rss+xml" />
+  <description>
+	
+    
+  </description>
+  
+  <item>
+    <title>CS6300 Artificial Intelligence - Notes Review</title>
+    <link>https://adithyab.in/cs6300-artificial-intelligence-notes-review</link>
+    <description>  </description>
+		<pubDate>Sat, 21 Aug 2021 10:04:08</pubDate>
+  </item>
+	
+  <item>
+    <title>Situating Sustainability</title>
+    <link>https://adithyab.in/situating-sustainability</link>
+    <description>  </description>
+		<pubDate>Sat, 17 Oct 2020 09:26:21</pubDate>
+  </item>
+	
+  <item>
+    <title>Climate change</title>
+    <link>https://adithyab.in/climate-change</link>
+    <description>  </description>
+		<pubDate>Fri, 16 Oct 2020 12:40:48</pubDate>
+  </item>
+	
+  <item>
+    <title>Food and Sustainability in India</title>
+    <link>https://adithyab.in/food-and-sustainability-in-india</link>
+    <description>  </description>
+		<pubDate>Thu, 15 Oct 2020 04:57:39</pubDate>
+  </item>
+	
+  <item>
+    <title>Population and its effects on Sustainability</title>
+    <link>https://adithyab.in/population-and-its-effects-on-sustainability</link>
+    <description>  </description>
+		<pubDate>Sun, 13 Sep 2020 07:14:04</pubDate>
+  </item>
+	
+  <item>
+    <title>Framing Sustainability with the 3Fs</title>
+    <link>https://adithyab.in/framing-sustainability-with-the-3fs</link>
+    <description>  </description>
+		<pubDate>Sat, 12 Sep 2020 12:10:13</pubDate>
+  </item>
+	
+  <item>
+    <title>Making a "Hello World" Javascript Macro in Tiddlywiki</title>
+    <link>https://adithyab.in/making-a-hello-world-javascript-macro-in-tiddlywiki</link>
+    <description>  </description>
+		<pubDate>Sun, 5 Jul 2020 07:49:49</pubDate>
+  </item>
+	
+  <item>
+    <title>Getting into Tiddlywiki</title>
+    <link>https://adithyab.in/getting-into-tiddlywiki</link>
+    <description>  </description>
+		<pubDate>Sat, 4 Jul 2020 07:34:33</pubDate>
+  </item>
+	
+</channel></rss>

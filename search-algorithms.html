@@ -1,0 +1,161 @@
+
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+  <meta name="generator" content="TiddlyWiki" />
+  <meta name="tiddlywiki-version" content="5.1.23" />
+
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="mobile-web-app-capable" content="yes" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <meta name="format-detection" content="telephone=no">
+	<script></script>
+  <link id="faviconLink" rel="shortcut icon" href="/favicon.ico">
+
+<title>Search Algorithms ~ Adithya's Lair</title>
+<meta name="description" content="This is a review of my notes from CS6300 Artificial Intelligence.">
+
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://adithyab.in/search-algorithms" />
+<meta property="og:title" content="Search Algorithms ~ Adithya's Lair" />
+<meta property="og:image" content="" />
+<meta property="og:description" content="This is a review of my notes from CS6300 Artificial Intelligence." />
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@adithya_badidey">
+<meta name="twitter:creator" content="@adithya_badidey">
+<meta name="twitter:title" content="Search Algorithms ~ Adithya's Lair" />
+<meta name="twitter:description" content="This is a review of my notes from CS6300 Artificial Intelligence." />
+<meta name="twitter:image" content="" />
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-171642977-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag('js', new Date());
+
+  gtag('config', 'UA-171642977-1');
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const e = Array.prototype.slice.call(document.querySelectorAll(".navbar-burger"), 0);
+    e.length > 0 && e.forEach(e => {
+      e.addEventListener("click", () => {
+        const t = e.dataset.target,
+          a = document.getElementById(t);
+        e.classList.toggle("is-active"), a.classList.toggle("is-active")
+      })
+    })
+  });
+</script>
+
+<link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body class="tc-body">
+  
+<nav aria-label="main navigation" class="navbar" role="navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="/">
+        Adithya's Lair
+      </a>
+
+      <a aria-expanded="false" aria-label="menu" class="navbar-burger burger" data-target="navbarTW" role="button">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+
+    <div class="navbar-menu" id="navbarTW">
+      <div class="navbar-end">
+<a class="navbar-item" href="/">Home</a>
+<a class="navbar-item" href="/blog">Blog</a>
+<a class="navbar-item" href="/portfolio">Portfolio</a>
+     </div>
+    </div>
+  </nav>
+
+
+<section class="section">
+    <div class="columns mt-6">
+        <div class="column is-5-fullhd is-6-desktop is-8-tablet is-offset-2">
+            <div class="content tc-blog">
+                
+                    <article class="message is-small">
+                        <div class="message-body">
+                            This note is a part of my Zettelkasten. What is below might not be complete or accurate. It
+                            is also likely to change often.
+                        </div>
+                    </article>
+                
+                <span class="has-text-grey-light is-small tc-subtitle tc-created">
+                    6th June, 2021
+                </span>
+                <h1 class="tc-title mt-1">
+                    Search Algorithms
+                </h1>
+                <p>This is a review of my notes from <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./cs6300-artificial-intelligence-notes-review.html">CS6300 Artificial Intelligence</a>. </p><p>Search algorithms are usually judged on the basis of:</p><ul><li>Completeness - Is the algorithm guaranteed to find the result?</li><li>Optimality - Does the algorithm always find the optimal solution (with the lowest path cost)</li><li>Time Complexity - How long does the algorithm take to find a solution?</li><li>Space Complexity - How much memory is needed to perform a search?</li></ul><h3 class="">Difference between Tree and Graph Search</h3><p>In Tree search, the closed list (list of visited nodes) is not stored. In cases with cyclic graphs, this can result in the search algorithm getting stuck in cycles. The advantage of this approach is that memory is not used for the closed list.</p><p>In Graph search, the closed list is stored (and used to trim the graph)</p><h3 class="">Uninformed search techniques</h3><p>We started off with Uninfomed search techniques.</p><ul><li>Depth First Search (DFS) - explore the newest node first. DFS is not complete in case of tree search. It is also not optimal</li><li>Breadth First Search (BFS) - explore closest nodes first. This is guaranteed to be complete and optimal (in a finite graph)</li><li>Uniform Cost Search (also called Dijkstra's Algorithm) - a variant of BFS with variable step cost.</li><li>Backtracking Search - a variant of DFS where each successor is explored in turn and the current search description is modified in situ to save memory.</li><li>Depth Limited Search - A variant of DFS which alleviates the problem of infinite search states by limiting the depth the search should go until</li><li>Iterative Depth First Search - Multiple iterations of Depth Limited Search with incremented depth limit in each iteration.</li></ul><p>If <strong>b</strong> is the branching factor and <strong>d</strong> is depth, the time complexity of all these algorithms are a factor of <strong>O(b<sup>d</sup>)</strong>. <strong>d</strong> is the depth of the first solution in case of BFS variants and depth of the graph itself in case of DFS variants. The space complexity of all BFS variations is <strong>O(b<sup>d</sup>)</strong> as well, whereas its <strong>O(bd)</strong> for DFS variants.</p><h3 class="">Informed Search</h3><p>Informed search functions use some evaluation funtion <strong>f(n)</strong> to work. This evaluation function uses the heuristic function <strong>h(n)</strong> along with the cost function <strong>g(n)</strong>. This heuristic function is the estimated cost of the cheapest cost from node n to a goal state. It should be 0 when n is the goal node and increase the further the node is from the goal.</p><ul><li>Greedy Best-first Search - expands the node with the minimal <strong>h(n)</strong>. Highly suboptimal but useful. <strong>f(n) = g(n)</strong></li><li>A* search - variant of Uniform Cost search where the node with the least <strong>f(n) = g(n) + h(n)</strong> is expanded. A* search is optimal if the heuristic is consistent. </li></ul><p>Performance of informed searches depend on the quality of the heuristic. </p><h2 class="">Constraint Satisfaction Problems</h2><p>These are a type of search problem where along with variables and domains, like any search problem, there are constraint which specify rules for how one variable's value restricts others'.</p><p>A solution to a CSP problem would be such that no constraint is violated. One example for a CSP problem is the sudoku puzzle. Some approaches to solve this type of search problems are:</p><ul><li>Arc Consistency Algorithm - tests if a CSP state is consistent with all the constraints or not. If it is consistent, the domains are reduced by removing all inconsistent values.</li></ul><ol><li>Create a queue filled with all the arcs. Arcs are all edges which connect two nodes if they are bound together by any constraint (they are directional).</li><li>While the queue has items<ol><li>Pop an arc from the queue</li><li>Enforce the constraint to try to reduce the domains of both the nodes in the arc. If the domain is actually reduced, add all outgoing arcs from the reduced nodes back into the queue.</li><li>If domain of any node goes to zero, the solution is not consistent</li></ol></li><li>End while</li></ol><ul><li>DFS(Backtracking) with Arc Consistency - Alternating the Arc consistency algorithm with DFS makes it easier to solve CSPs since the arc consistency reduces the branching factor of the search significantly.<ul><li>Proper use of heuristics can further cut down on the amount of computation needed to find the solution. Choosing the least constraining value of a node to search is one. Another heuristic is the Minimum remaining values heuristic - choosing the node with smallest domain to explore further.</li></ul></li></ul><h2 class="">Adverserial Search</h2><p>A special variant of general search where the search is run on a decision tree which cycles through decisions taken by you and your opponents. The determinant version is called min-max search. </p><h2 class="">Stochastic Search</h2><p>What if the agent has to choose an action at a node and the outcome of that is not determinant but probabilistic? To choose between actions with different outcome probabilities, the agent needs to calculate the expected utility - the sum of the probability-weighted utility of each outcome - of each action.</p><p>Using this, the tree can be traversed and right decisions can be taken. A subclass of this type of search is <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./markov-decision-processes.html">Markov Decision Processes</a></p>
+            </div>
+            <div class="tc-blog-footer">
+                <hr class="mb-2">
+                <nav class="tc-backlinks mb-4">
+                    <h2 class="backlinks-header">
+                        
+                    </h2>
+                    <div class="content">
+                        <ul>
+                            
+                        </ul>
+                    </div>
+                </nav>
+                <nav class="level is-mobile">
+                    
+                    <div class="level-left">
+                        <p class="is-size-7 has-text-grey-light is-small tc-modified tc-subtitle">Last Updated: 
+                            8th June, 2021
+                        </p>
+                    </div>
+                    <div class="level-right">
+                        <div class="tags">
+                            
+                                <span class="tag">
+                                    AI
+                                </span>
+                            
+                                <span class="tag">
+                                    algorithms
+                                </span>
+                            
+                        </div>
+                    </div>
+                </nav>
+                <hr>
+            </div>
+            <div id="disqus_thread"></div>
+            <noscript>Please enable JavaScript to view the comments.</noscript>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+  <div class="columns">
+	  <div class="column is-6-desktop is-8-tablet is-offset-2"><p><p>
+Built with <a class="tc-tiddlylink-external" href="https://tiddlyjam.com" rel="noopener noreferrer" target="_blank">TiddlyJam</a> and <a class="tc-tiddlylink-external" href="https://bulma.io/" rel="noopener noreferrer" target="_blank">Bulma</a>. Hosted on <a class="tc-tiddlylink-external" href="https://pages.github.com/" rel="noopener noreferrer" target="_blank">Github Pages</a>.
+    </p>
+		</p></div>
+  </div>
+	<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;600&amp;display=swap" rel="stylesheet">
+</footer>
+
+</body>
+</html>
