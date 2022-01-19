@@ -12895,37 +12895,22 @@ a.tc-tiddlylink-external:hover {
   margin-top: 0.25em;
   margin-bottom: 0.25em;
 }
+
+pre.hljs {
+  max-height: 240px;
+}
+
+pre + p > img {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+pre:not(.hljs) {
+  background-color: transparent;
+  padding-top: 0px;
+  opacity: 0.5;
+  margin-left: 40px;
+  margin-right: 40px;
+}
 /*# sourceMappingURL=style.css.map */
-
-.shield {
-  font-weight: normal;
-  display: inline-block;
-  color: white;
-  font-size: .8em;
-}
-
-.shield .shield-label {
-  background: #555;
-  border-top-left-radius: 4px;
-  border-bottom-left-radius: 4px;
-  padding: 3px 6px;
-}
-
-.shield .shield-status {
-  background: #40ba12;
-  border-top-right-radius: 4px;
-  border-bottom-right-radius: 4px;
-  padding: 3px 6px;
-}
-
-.shield.shield-purple .shield-status {
-  background: #923293;
-}
-
-.shield.shield-red .shield-status {
-  background: #cc5640;
-}
-
-.shield.shield-blue .shield-status {
-  background: #0e7fbf;
-}

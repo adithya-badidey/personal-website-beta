@@ -6,13 +6,15 @@
   <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 
   <meta name="generator" content="TiddlyWiki" />
-  <meta name="tiddlywiki-version" content="5.1.23" />
+  <meta name="tiddlywiki-version" content="5.2.1" />
 
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="mobile-web-app-capable" content="yes" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="page_canonical_url" content="https://adithyab.in/smart-contract" />
+	<meta name="page_unique_id" content="20200723132754521" />
 
   <meta name="format-detection" content="telephone=no">
 	<script></script>
@@ -36,28 +38,10 @@
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-171642977-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
 
-  function gtag() {
-    dataLayer.push(arguments);
-  }
-  gtag('js', new Date());
-
-  gtag('config', 'UA-171642977-1');
-
-  document.addEventListener("DOMContentLoaded", () => {
-    const e = Array.prototype.slice.call(document.querySelectorAll(".navbar-burger"), 0);
-    e.length > 0 && e.forEach(e => {
-      e.addEventListener("click", () => {
-        const t = e.dataset.target,
-          a = document.getElementById(t);
-        e.classList.toggle("is-active"), a.classList.toggle("is-active")
-      })
-    })
-  });
-</script>
-
+<link rel="stylesheet" href="css/atom-one-dark.min.css">
+<script src="js/highlight.min.js" defer></script>
+<script src="js/scripts.js" defer></script>
 <link rel="stylesheet" href="css/style.css" />
 </head>
 
@@ -104,7 +88,7 @@
                 <h1 class="tc-title mt-1">
                     Smart Contract
                 </h1>
-                <p>Smart contracts are:</p><ul><li>Accounts on the <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./ethereum.html">Ethereum</a> Network<ul><li>Address of a smart contract is determined at the time of its creation using the creators address and the number of transactions sent from that address or &quot;nonce&quot;<ul><li>Address of a user account is determined from the public key</li><li>Both are treated equally by the <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./ethereum-virtual-machine.html">EVM</a></li></ul></li><li>They can hold a balance in <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./ether.html">Ether</a></li></ul></li><li>Limited data storage<ul><li>Stored in a map of 256-bit words to 256-bit words</li><li>Data can be updated for a cost (since work needs to be done to update them)</li></ul></li><li>Immutable<ul><li>No way of editing their code - create a new one to change</li><li>They have code instead of a Private Key</li></ul></li><li>Object Oriented Code<ul><li>Having all OOP characteristics like inheritance</li></ul></li><li><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./dapp.html">DAPP</a>s are one or more smart contracts working together<ul><li><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./dao.html">DAO</a>s are DAPPS too</li></ul></li><li>activated when the contract account receives a message; it can then perform transactions.</li></ul><h2 class="">Transactions</h2><p>Smart Contracts can execute transactions</p><ul><li>Each transaction is a message <ul><li>with a target account (which can be same as the sender or empty)</li><li>can include a payload of binary data</li><li>can include ether</li></ul></li><li>If the target account is a Smart Contract, the payload is used as input data for the smart contract</li><li>If the target account is empty or null, the transaction creates a new smart contract with the address as described above</li><li>Payload is taken as EVM Bytecode and executed, the output of this is stored as the code of the contract</li></ul><p>Smart contracts can create new smart contracts too (but using a function instead of sending a message to an empty address.</p><h2 class="">Gas</h2><p>Smart contracts need <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./ether.html">Ether</a> to execute.</p><ul><li>This is to ensure that miners are paid for their work and noone exploits the distributed processing system.</li><li>For execution, the cost is calculated in terms of Gas as per set rules. <ul><li>Taking this Gas amount and multiplying it by a Gas price (in ether) will give us the ether needed to execute the code.</li></ul></li><li>Gas price is set by the sender but needs to be accepted by a miner.<ul><li>Higher the gas price, the more likely the transaction will be picked up by a miner and processed</li><li>To execute a transaction, the limit you're willing to spend on it will be sent alongside as ether. The unused gas will be transferred back to your account.</li></ul></li></ul><h2 class="">Destroy</h2><ul><li>Contracts can self-distruct<ul><li>Remaining ether will be sent to designated target</li><li>Storage and code is removed from the state</li><li>Once destroyed, any ether sent to that address is lost</li></ul></li><li>Contracts can deactivate<ul><li>This ensures any ether sent to their address is returned</li></ul></li></ul>
+                <p>Smart contracts are:</p><ul><li>Accounts on the <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./ethereum.html">Ethereum</a> Network<ul><li>Address of a smart contract is determined at the time of its creation using the creators address and the number of transactions sent from that address or "nonce"<ul><li>Address of a user account is determined from the public key</li><li>Both are treated equally by the <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./ethereum-virtual-machine.html">EVM</a></li></ul></li><li>They can hold a balance in <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./ether.html">Ether</a></li></ul></li><li>Limited data storage<ul><li>Stored in a map of 256-bit words to 256-bit words</li><li>Data can be updated for a cost (since work needs to be done to update them)</li></ul></li><li>Immutable<ul><li>No way of editing their code - create a new one to change</li><li>They have code instead of a Private Key</li></ul></li><li>Object Oriented Code<ul><li>Having all OOP characteristics like inheritance</li></ul></li><li><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./dapp.html">DAPP</a>s are one or more smart contracts working together<ul><li><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./dao.html">DAO</a>s are DAPPS too</li></ul></li><li>activated when the contract account receives a message; it can then perform transactions.</li></ul><h2 class="">Transactions</h2><p>Smart Contracts can execute transactions</p><ul><li>Each transaction is a message <ul><li>with a target account (which can be same as the sender or empty)</li><li>can include a payload of binary data</li><li>can include ether</li></ul></li><li>If the target account is a Smart Contract, the payload is used as input data for the smart contract</li><li>If the target account is empty or null, the transaction creates a new smart contract with the address as described above</li><li>Payload is taken as EVM Bytecode and executed, the output of this is stored as the code of the contract</li></ul><p>Smart contracts can create new smart contracts too (but using a function instead of sending a message to an empty address.</p><h2 class="">Gas</h2><p>Smart contracts need <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./ether.html">Ether</a> to execute.</p><ul><li>This is to ensure that miners are paid for their work and noone exploits the distributed processing system.</li><li>For execution, the cost is calculated in terms of Gas as per set rules. <ul><li>Taking this Gas amount and multiplying it by a Gas price (in ether) will give us the ether needed to execute the code.</li></ul></li><li>Gas price is set by the sender but needs to be accepted by a miner.<ul><li>Higher the gas price, the more likely the transaction will be picked up by a miner and processed</li><li>To execute a transaction, the limit you're willing to spend on it will be sent alongside as ether. The unused gas will be transferred back to your account.</li></ul></li></ul><h2 class="">Destroy</h2><ul><li>Contracts can self-distruct<ul><li>Remaining ether will be sent to designated target</li><li>Storage and code is removed from the state</li><li>Once destroyed, any ether sent to that address is lost</li></ul></li><li>Contracts can deactivate<ul><li>This ensures any ether sent to their address is returned</li></ul></li></ul>
             </div>
             <div class="tc-blog-footer">
                 <hr class="mb-2">

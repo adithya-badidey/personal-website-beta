@@ -6,13 +6,15 @@
   <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 
   <meta name="generator" content="TiddlyWiki" />
-  <meta name="tiddlywiki-version" content="5.1.23" />
+  <meta name="tiddlywiki-version" content="5.2.1" />
 
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="mobile-web-app-capable" content="yes" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="page_canonical_url" content="https://adithyab.in/prisoners-dilemma" />
+	<meta name="page_unique_id" content="20200808192700443" />
 
   <meta name="format-detection" content="telephone=no">
 	<script></script>
@@ -36,28 +38,10 @@
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-171642977-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
 
-  function gtag() {
-    dataLayer.push(arguments);
-  }
-  gtag('js', new Date());
-
-  gtag('config', 'UA-171642977-1');
-
-  document.addEventListener("DOMContentLoaded", () => {
-    const e = Array.prototype.slice.call(document.querySelectorAll(".navbar-burger"), 0);
-    e.length > 0 && e.forEach(e => {
-      e.addEventListener("click", () => {
-        const t = e.dataset.target,
-          a = document.getElementById(t);
-        e.classList.toggle("is-active"), a.classList.toggle("is-active")
-      })
-    })
-  });
-</script>
-
+<link rel="stylesheet" href="css/atom-one-dark.min.css">
+<script src="js/highlight.min.js" defer></script>
+<script src="js/scripts.js" defer></script>
 <link rel="stylesheet" href="css/style.css" />
 </head>
 
@@ -104,7 +88,7 @@
                 <h1 class="tc-title mt-1">
                     Prisoners Dilemma
                 </h1>
-                <p>The prisoners dilemma game is a non-cooperative complete information game - all players know the game tree and payoff table. Mostly, the players can communicate if they choose to but since the game doesnt allow for any binding agreements, communication might be irrelevant.</p><p>In the game, there are two players with two choices each. </p><table><tbody><tr class="evenRow"><td align="left">↓ P2   &amp;  P1 -&gt;</td><td>Cooperates</td><td>Defects</td></tr><tr class="oddRow"><td>Cooperates</td><td>P1=y, P2=y</td><td>P1=z, P2=w</td></tr><tr class="evenRow"><td align="left">Defects</td><td>P1=w, P2=z</td><td>P1=y, P2=y</td></tr></tbody></table><p>Here, w&lt;x&lt;y&lt;z, so mutual cooperation is a better outcome than mutual defection. If either player defects when the other cooperates, that player gets the maximum payoff.</p><p>Each player has a dominant strategy - in the sense that the player is better of making a particular choice (to defect) regardless of what the other player chooses. If both players choose to go with the dominant strategy, they produce an <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./equilibrium.html">Equilibrium</a> that is the third best result for both.</p><p>This result is not <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./pareto-optimality.html">pareto optimal</a>. A pareto optimal outcome is one where no player can be better off without harming the other. In this game, that outcome is (cooperate,cooperate). The equilibrium outcome is Pareto-Inferior.</p><p>This is a situation where individually rational strategy leads to a collectively irrational outcome.</p><h2 class="">Prisoners dilemma and CPR Problems</h2><p>Some problems related to CPR (Common Pool Resource) usage can be reduced to a Prisoners Dilemma Game. Others need other games like <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./game-of-chicken.html">Game of Chicken</a> or <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./stag-hunt-game.html">Stag hunt game</a> or  more complex games.</p><p>Hardin's problem presented in the <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./tragedy-of-the-commons.html">Tragedy of the commons</a> is one such problem. If the herder adding more goats is the &quot;defect&quot; choice to each herder. While operating at optimal non-degrading levels is the &quot;cooperate&quot; choice. When both cooperate, they share gains. When one defects, that herder gains while the other suffers.</p>
+                <p>The prisoners dilemma game is a non-cooperative complete information game - all players know the game tree and payoff table. Mostly, the players can communicate if they choose to but since the game doesnt allow for any binding agreements, communication might be irrelevant.</p><p>In the game, there are two players with two choices each. </p><table><tbody><tr class="evenRow"><td align="left">↓ P2   &amp;  P1 -&gt;</td><td>Cooperates</td><td>Defects</td></tr><tr class="oddRow"><td>Cooperates</td><td>P1=y, P2=y</td><td>P1=z, P2=w</td></tr><tr class="evenRow"><td align="left">Defects</td><td>P1=w, P2=z</td><td>P1=y, P2=y</td></tr></tbody></table><p>Here, w&lt;x&lt;y&lt;z, so mutual cooperation is a better outcome than mutual defection. If either player defects when the other cooperates, that player gets the maximum payoff.</p><p>Each player has a dominant strategy - in the sense that the player is better of making a particular choice (to defect) regardless of what the other player chooses. If both players choose to go with the dominant strategy, they produce an <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./equilibrium.html">Equilibrium</a> that is the third best result for both.</p><p>This result is not <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./pareto-optimality.html">pareto optimal</a>. A pareto optimal outcome is one where no player can be better off without harming the other. In this game, that outcome is (cooperate,cooperate). The equilibrium outcome is Pareto-Inferior.</p><p>This is a situation where individually rational strategy leads to a collectively irrational outcome.</p><h2 class="">Prisoners dilemma and CPR Problems</h2><p>Some problems related to CPR (Common Pool Resource) usage can be reduced to a Prisoners Dilemma Game. Others need other games like <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./game-of-chicken.html">Game of Chicken</a> or <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./stag-hunt-game.html">Stag hunt game</a> or  more complex games.</p><p>Hardin's problem presented in the <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./tragedy-of-the-commons.html">Tragedy of the commons</a> is one such problem. If the herder adding more goats is the "defect" choice to each herder. While operating at optimal non-degrading levels is the "cooperate" choice. When both cooperate, they share gains. When one defects, that herder gains while the other suffers.</p>
             </div>
             <div class="tc-blog-footer">
                 <hr class="mb-2">

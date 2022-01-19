@@ -180,6 +180,21 @@ a.tc-tiddlylink-external:hover
 //   background-image: url("/img/double-bubble-dark.png")
 //   background-repeat: repeat
 
-  // This is the polka dot pattern.
-  // background-image: radial-gradient(ellipse  100% 100% , #013440, #013440 25%, transparent 25%),radial-gradient(ellipse  50% 50% , #AB1A25, #AB1A25 25%, #002635 25%)
-  // background-size: 1em 1em, 2em 2em
+// This is the polka dot pattern.
+// background-image: radial-gradient(ellipse  100% 100% , #013440, #013440 25%, transparent 25%),radial-gradient(ellipse  50% 50% , #AB1A25, #AB1A25 25%, #002635 25%)
+// background-size: 1em 1em, 2em 2em
+
+pre.hljs
+  max-height: 240px
+
+pre + p>img
+  margin-left: auto
+  margin-right: auto
+  display: block
+
+pre:not(.hljs)
+  background-color: transparent
+  padding-top: 0px
+  opacity: 0.5
+  margin-left: 40px
+  margin-right: 40px

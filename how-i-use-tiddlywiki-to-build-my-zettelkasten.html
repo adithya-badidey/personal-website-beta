@@ -6,13 +6,15 @@
   <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 
   <meta name="generator" content="TiddlyWiki" />
-  <meta name="tiddlywiki-version" content="5.1.23" />
+  <meta name="tiddlywiki-version" content="5.2.1" />
 
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="mobile-web-app-capable" content="yes" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="page_canonical_url" content="https://adithyab.in/how-i-use-tiddlywiki-to-build-my-zettelkasten" />
+	<meta name="page_unique_id" content="20200717173516952" />
 
   <meta name="format-detection" content="telephone=no">
 	<script></script>
@@ -36,28 +38,10 @@
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-171642977-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
 
-  function gtag() {
-    dataLayer.push(arguments);
-  }
-  gtag('js', new Date());
-
-  gtag('config', 'UA-171642977-1');
-
-  document.addEventListener("DOMContentLoaded", () => {
-    const e = Array.prototype.slice.call(document.querySelectorAll(".navbar-burger"), 0);
-    e.length > 0 && e.forEach(e => {
-      e.addEventListener("click", () => {
-        const t = e.dataset.target,
-          a = document.getElementById(t);
-        e.classList.toggle("is-active"), a.classList.toggle("is-active")
-      })
-    })
-  });
-</script>
-
+<link rel="stylesheet" href="css/atom-one-dark.min.css">
+<script src="js/highlight.min.js" defer></script>
+<script src="js/scripts.js" defer></script>
 <link rel="stylesheet" href="css/style.css" />
 </head>
 
@@ -97,7 +81,7 @@
                 <h1 class="tc-title mt-1">
                     How I use Tiddlywiki to build my Zettelkasten
                 </h1>
-                <p>I use tiddlywiki to build my pseudo-Zettelkasten and thought I'll share some things about my process.</p><p>For those unfamiliar with these terms, a Zettelkasten is a note-taking system and TiddlyWiki is a <a class="tc-tiddlylink-external" href="https://tiddlywiki.com" rel="noopener noreferrer" target="_blank">non-linear notebook</a></p><h2 class="">Types of notes I take</h2><ul><li><strong>Fleeting notes</strong>: These notes also those not captured on the TiddlyWiki. They are captured elsewhere with the intention of converting into a permanent note.<ul><li>For example: scribbled on post-it notes when reading from physical books, highlights and short notes on kindle, written notes from class</li></ul></li><li><strong>Bibliographic notes</strong>: I use the tag &quot;source&quot; for this.<ul><li>For example: <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./how-to-take-smart-notes-sonke-ahrens.html">How to take smart notes - Sonke Ahrens</a></li></ul></li><li><strong>Permanent notes</strong>: These form the bulk of the Zettelkasten.<ul><li>Rest of the notes are an example of this They are have appropriately tagged based on what categories they form.</li></ul></li></ul><h2 class="">How I take notes</h2><p>When reading or listening, I take fleeting notes. These are usually very rough (or not, depends on the situation). Once in a while (I try to keep this interval to not more than a week), I convert these fleeting notes into source notes. </p><p>Source notes can be very long or short. If the ideas are such that they are more suited to be permanent notes, the source note could just be a list of links to permanent notes (like <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./radical-markets-eric-a-posner-e-glen-weyl.html">Radical Markets - Eric A. Posner, E. Glen Weyl</a>) or the source note can be very dense. </p><p>When making permanent notes, I make sure to:</p><ul><li>Capture each idea as a seperate note.</li><li>Add the shortest, still coherent title</li><li>Add the appropriate tags</li><li>Summarize the note in a few short lines in the first paragraph</li><li>Write in full sentences and with good grammer.<ul><li>Each note should be as short and simple as possible and no shorter.</li><li>Notes on a new topic will be longer - its fine.</li><li>I keep in mind that I am not writing this for myself, but for my future self.</li></ul></li><li>After I add a note, I add links to other notes which are relevant.<ul><li>How does this new idea connect, support, contradict, correct or add to other notes?</li><li>Think of the contexts under which I might want to stumble across this new idea.</li></ul></li><li>Read more to fill in the gaps and develop my arguments<ul><li>Be open to change - I change old notes all the time.</li></ul></li></ul><h2 class="">How TiddlyWiki supports my note taking</h2><ul><li>Easy backlinks functionality handles the work of adding references.</li><li><a class="tc-tiddlylink-external" href="https://nicolas.petton.fr/tw/notebook.html" rel="noopener noreferrer" target="_blank">Notebook theme by Nico</a> is my current favourite theme.</li><li>The <a class="tc-tiddlylink-external" href="https://flibbles.github.io/tw5-relink/" rel="noopener noreferrer" target="_blank">relink plugin</a> is essential.</li><li>I use <a class="tc-tiddlylink-external" href="https://tiddlywiki.com/plugins/tiddlywiki/codemirror/" rel="noopener noreferrer" target="_blank">CodeMirror</a> along with <a class="tc-tiddlylink-external" href="https://github.com/adithya-badidey/TW5-codemirror-plus" rel="noopener noreferrer" target="_blank">CMPlus plugin</a> to make the editor easier to write with.</li><li>I made <a class="tc-tiddlylink-external" href="https://tiddlyjam.com" rel="noopener noreferrer" target="_blank">TiddlyJam</a> to render my TW to a static website (which is where you might be reading this)</li><li>I use the <a class="tc-tiddlylink-external" href="https://github.com/adithya-badidey/TW-Karya" rel="noopener noreferrer" target="_blank">Karya Plugin</a> to do task management inside my TW itself (it made that too)</li></ul>
+                <p>I use tiddlywiki to build my pseudo-Zettelkasten and thought I'll share some things about my process.</p><p>For those unfamiliar with these terms, a Zettelkasten is a note-taking system and TiddlyWiki is a <a class="tc-tiddlylink-external" href="https://tiddlywiki.com" rel="noopener noreferrer" target="_blank">non-linear notebook</a></p><h2 class="">Types of notes I take</h2><ul><li><strong>Fleeting notes</strong>: These notes also those not captured on the TiddlyWiki. They are captured elsewhere with the intention of converting into a permanent note.<ul><li>For example: scribbled on post-it notes when reading from physical books, highlights and short notes on kindle, written notes from class</li></ul></li><li><strong>Bibliographic notes</strong>: I use the tag "source" for this.<ul><li>For example: <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./how-to-take-smart-notes-sonke-ahrens.html">How to take smart notes - Sonke Ahrens</a></li></ul></li><li><strong>Permanent notes</strong>: These form the bulk of the Zettelkasten.<ul><li>Rest of the notes are an example of this They are have appropriately tagged based on what categories they form.</li></ul></li></ul><h2 class="">How I take notes</h2><p>When reading or listening, I take fleeting notes. These are usually very rough (or not, depends on the situation). Once in a while (I try to keep this interval to not more than a week), I convert these fleeting notes into source notes. </p><p>Source notes can be very long or short. If the ideas are such that they are more suited to be permanent notes, the source note could just be a list of links to permanent notes (like <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./radical-markets-eric-a-posner-e-glen-weyl.html">Radical Markets - Eric A. Posner, E. Glen Weyl</a>) or the source note can be very dense. </p><p>When making permanent notes, I make sure to:</p><ul><li>Capture each idea as a seperate note.</li><li>Add the shortest, still coherent title</li><li>Add the appropriate tags</li><li>Summarize the note in a few short lines in the first paragraph</li><li>Write in full sentences and with good grammer.<ul><li>Each note should be as short and simple as possible and no shorter.</li><li>Notes on a new topic will be longer - its fine.</li><li>I keep in mind that I am not writing this for myself, but for my future self.</li></ul></li><li>After I add a note, I add links to other notes which are relevant.<ul><li>How does this new idea connect, support, contradict, correct or add to other notes?</li><li>Think of the contexts under which I might want to stumble across this new idea.</li></ul></li><li>Read more to fill in the gaps and develop my arguments<ul><li>Be open to change - I change old notes all the time.</li></ul></li></ul><h2 class="">How TiddlyWiki supports my note taking</h2><ul><li>Easy backlinks functionality handles the work of adding references.</li><li><a class="tc-tiddlylink-external" href="https://nicolas.petton.fr/tw/notebook.html" rel="noopener noreferrer" target="_blank">Notebook theme by Nico</a> is my current favourite theme.</li><li>The <a class="tc-tiddlylink-external" href="https://flibbles.github.io/tw5-relink/" rel="noopener noreferrer" target="_blank">relink plugin</a> is essential.</li><li>I use <a class="tc-tiddlylink-external" href="https://tiddlywiki.com/plugins/tiddlywiki/codemirror/" rel="noopener noreferrer" target="_blank">CodeMirror</a> along with <a class="tc-tiddlylink-external" href="https://github.com/adithya-badidey/TW5-codemirror-plus" rel="noopener noreferrer" target="_blank">CMPlus plugin</a> to make the editor easier to write with.</li><li>I made <a class="tc-tiddlylink-external" href="https://tiddlyjam.com" rel="noopener noreferrer" target="_blank">TiddlyJam</a> to render my TW to a static website (which is where you might be reading this)</li><li>I use the <a class="tc-tiddlylink-external" href="https://github.com/adithya-badidey/TW-Karya" rel="noopener noreferrer" target="_blank">Karya Plugin</a> to do task management inside my TW itself (it made that too)</li></ul>
             </div>
             <div class="tc-blog-footer">
                 <hr class="mb-2">

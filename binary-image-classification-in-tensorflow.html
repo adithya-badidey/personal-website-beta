@@ -1,0 +1,368 @@
+
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+  <meta name="generator" content="TiddlyWiki" />
+  <meta name="tiddlywiki-version" content="5.2.1" />
+
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="mobile-web-app-capable" content="yes" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="page_canonical_url" content="https://adithyab.in/binary-image-classification-in-tensorflow" />
+	<meta name="page_unique_id" content="20220113052701389" />
+
+  <meta name="format-detection" content="telephone=no">
+	<script></script>
+  <link id="faviconLink" rel="shortcut icon" href="/favicon.ico">
+
+<title>Binary Image Classification In Tensorflow ~ Adithya's Lair</title>
+<meta name="description" content="In this blog, I explore solving a basic Image Classification task using Tensorflow & Keras. This is the first in my "Understanding Tensorflow" series of notes.">
+
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://adithyab.in/binary-image-classification-in-tensorflow" />
+<meta property="og:title" content="Binary Image Classification In Tensorflow ~ Adithya's Lair" />
+<meta property="og:image" content="" />
+<meta property="og:description" content="In this blog, I explore solving a basic Image Classification task using Tensorflow & Keras. This is the first in my "Understanding Tensorflow" series of notes." />
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@adithya_badidey">
+<meta name="twitter:creator" content="@adithya_badidey">
+<meta name="twitter:title" content="Binary Image Classification In Tensorflow ~ Adithya's Lair" />
+<meta name="twitter:description" content="In this blog, I explore solving a basic Image Classification task using Tensorflow & Keras. This is the first in my "Understanding Tensorflow" series of notes." />
+<meta name="twitter:image" content="" />
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-171642977-1"></script>
+
+<link rel="stylesheet" href="css/atom-one-dark.min.css">
+<script src="js/highlight.min.js" defer></script>
+<script src="js/scripts.js" defer></script>
+<link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body class="tc-body">
+  
+<nav aria-label="main navigation" class="navbar" role="navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="/">
+        Adithya's Lair
+      </a>
+
+      <a aria-expanded="false" aria-label="menu" class="navbar-burger burger" data-target="navbarTW" role="button">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+
+    <div class="navbar-menu" id="navbarTW">
+      <div class="navbar-end">
+<a class="navbar-item" href="/">Home</a>
+<a class="navbar-item" href="/blog">Blog</a>
+<a class="navbar-item" href="/portfolio">Portfolio</a>
+     </div>
+    </div>
+  </nav>
+
+
+<section class="section">
+    <div class="columns mt-6">
+        <div class="column is-5-fullhd is-6-desktop is-8-tablet is-offset-2">
+            <div class="content tc-blog">
+                
+                <span class="has-text-grey-light is-small tc-subtitle tc-created">
+                    12th January, 2022
+                </span>
+                <h1 class="tc-title mt-1">
+                    Binary Image Classification In Tensorflow
+                </h1>
+                <p>This is the first in my "Understanding Tensorflow" series. In this blog, I explore writing a basic Image Classification task using Tensorflow &amp; Keras. </p><p>This blog is based on a jupyter notebook. You should check that out if you wish to run the code. Link: <a class="tc-tiddlylink-external" href="https://github.com/adithya-badidey/tf-experiments/blob/master/beginner-trail/10-pet-classif-basic.ipynb" rel="noopener noreferrer" target="_blank">https://github.com/adithya-badidey/tf-experiments/blob/master/beginner-trail/10-pet-classif-basic.ipynb</a>. </p><h2>Importing the dataset</h2><p>I use the the "The Oxford-IIIT Pet Dataset" from <a class="tc-tiddlylink-external" href="https://www.robots.ox.ac.uk/~vgg/data/pets/data/images.tar.gz" rel="noopener noreferrer" target="_blank">https://www.robots.ox.ac.uk/~vgg/data/pets/</a>.</p><p>Once downloaded the tarball contains a single folder called <code>images</code>, which contains both the cat and dog photos. In this particular dataset, the label of the image is in the filename. Particularly, the first letter of the filename is capital if the image were that of a cat (like <code>Persian_80.jpg</code>) and lowercase if its a dog photo (like <code>keeshond_130.jpg</code>).</p><p>So, once I extract the tarball, I move cats and dogs into their own subfolder. Once I do that the folder structure is as follows:</p><ul><li>pet_photos<ul><li>dogs<ul><li>yorkshire_terrier_93.jpg</li><li>german_shorthaired_118.jpg</li><li>...</li></ul></li><li>cats<ul><li>Bombay_75.jpg</li><li>Sphynx_84.jpg</li><li>...</li></ul></li></ul></li></ul><pre class="python hljs"><code><span class="hljs-keyword">import</span> tensorflow <span class="hljs-keyword">as</span> tf
+<span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
+<span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt
+<span class="hljs-keyword">import</span> seaborn <span class="hljs-keyword">as</span> sns
+<span class="hljs-keyword">import</span> os
+<span class="hljs-keyword">import</span> pathlib
+
+plt.style.use(<span class="hljs-string">'dark_background'</span>)
+
+<span class="hljs-comment"># Making sure tensorflow is working properly</span>
+print(<span class="hljs-string">"TensorFlow Versions: "</span>, tf.__version__)
+<span class="hljs-keyword">if</span> tf.config.list_physical_devices(<span class="hljs-string">'GPU'</span>):
+  print(<span class="hljs-string">"TensorFlow **IS** using the GPU"</span>)
+<span class="hljs-keyword">else</span>:
+  print(<span class="hljs-string">"TensorFlow **IS NOT** using the GPU"</span>)
+
+<span class="hljs-comment"># This prevents some error messages caused by reaching memory limits</span>
+gpus = tf.config.experimental.list_physical_devices(<span class="hljs-string">'GPU'</span>)
+<span class="hljs-keyword">for</span> gpu <span class="hljs-keyword">in</span> gpus:
+    tf.config.experimental.set_memory_growth(gpu, <span class="hljs-literal">True</span>)
+
+</code></pre><pre>TensorFlow Versions:  2.7.0
+TensorFlow **IS** using the GPU
+</pre><pre class="python hljs"><code>data_dir = pathlib.Path(<span class="hljs-string">'/home/addy/.keras/datasets/pets_photos/'</span>)
+
+<span class="hljs-keyword">if</span> data_dir.exists():
+    print(<span class="hljs-string">"Found the 'pets_photos' dataset."</span>)
+
+<span class="hljs-keyword">else</span>:
+    print(<span class="hljs-string">"Downloading 'pets_photos' dataset."</span>)
+    
+    <span class="hljs-comment"># Downloading and formatting the "The Oxford-IIIT Pet Dataset" from </span>
+    <span class="hljs-comment"># https://www.robots.ox.ac.uk/~vgg/data/pets/data/images.tar.gz</span>
+
+    dataset_url = <span class="hljs-string">"https://www.robots.ox.ac.uk/~vgg/data/pets/data/images.tar.gz"</span>
+    data_dir = tf.keras.utils.get_file(origin=dataset_url,
+                                    fname=<span class="hljs-string">'pets_photos'</span>,
+                                    untar=<span class="hljs-literal">True</span>)
+    data_dir = pathlib.Path(data_dir)
+
+
+    <span class="hljs-comment"># Delete the tar file (which keras doesn't delete for some reason) </span>
+    <span class="hljs-comment"># and move the images folder into the new pets_photos folder</span>
+    <span class="hljs-comment"># This code might need to be changed based on your system config</span>
+
+    !rm ~/.keras/datasets/pets_photos.tar.gz
+    !mkdir ~/.keras/datasets/pets_photos
+    !mv ~/.keras/datasets/images ~/.keras/datasets/pets_photos/images
+
+
+    <span class="hljs-comment"># Move cats and dogs into their own subfolder so that the </span>
+    <span class="hljs-comment"># tf.keras.utils.image_dataset_from_directory function can pickup</span>
+    <span class="hljs-comment"># categories from the folder structure.</span>
+
+    images_dir = data_dir / <span class="hljs-string">'images'</span>
+    cats_dir = data_dir / <span class="hljs-string">'cats'</span>
+    dogs_dir = data_dir / <span class="hljs-string">'dogs'</span>
+
+    cats_dir.mkdir()
+    dogs_dir.mkdir()
+
+    f = []
+    <span class="hljs-keyword">for</span> (dirpath, dirnames, filenames) <span class="hljs-keyword">in</span> os.walk(images_dir):
+        <span class="hljs-keyword">for</span> file <span class="hljs-keyword">in</span> filenames:
+            <span class="hljs-comment"># The cats' image filenames start with an uppercase letter ¯\_(ツ)_/¯</span>
+            <span class="hljs-keyword">if</span> file[<span class="hljs-number">0</span>].isupper():
+                os.rename(images_dir / file, cats_dir / file)
+            <span class="hljs-keyword">else</span>:
+                os.rename(images_dir / file, dogs_dir / file)
+
+
+    <span class="hljs-comment"># Finally delete the images folder. All photos should be under </span>
+    <span class="hljs-comment"># their proper categorical folder.</span>
+    !rm -r ~/.keras/datasets/pets_photos/images
+</code></pre><pre>Found the 'pets_photos' dataset.
+</pre><pre class="python hljs"><code>dogs_count = len(list(data_dir.glob(<span class="hljs-string">'dogs/*.jpg'</span>)))
+cats_count = len(list(data_dir.glob(<span class="hljs-string">'cats/*.jpg'</span>)))
+all_count = cats_count + dogs_count
+print(<span class="hljs-string">"Data Directory: "</span>, data_dir)
+print(<span class="hljs-string">"Number of total .jpg files: "</span>, all_count)
+print(<span class="hljs-string">"Number of .jpg images in /cats/: "</span>, cats_count)
+print(<span class="hljs-string">"Number of .jpg images in /dogs/: "</span>, dogs_count)
+
+</code></pre><pre>Data Directory:  /home/addy/.keras/datasets/pets_photos
+Number of total .jpg files:  7390
+Number of .jpg images in /cats/:  2400
+Number of .jpg images in /dogs/:  4990
+</pre><h2>Loading the datasets</h2><p>Since the appropriate folder structure has been created, I call the <code>tf.keras.utils.image_dataset_from_directory</code> function to import the dataset. This function scans the dataset folder for images and automatically labels each image with the name of the directory it is found in.</p><pre class="python hljs"><code><span class="hljs-comment"># Initializing parameters</span>
+
+batch_size = <span class="hljs-number">32</span>     <span class="hljs-comment"># Reduce this if you get memory errors</span>
+
+img_height = <span class="hljs-number">160</span>    <span class="hljs-comment"># I'm keeping this at 160 for no particular reason </span>
+img_width = <span class="hljs-number">160</span>     <span class="hljs-comment"># (there is a reason, I'll share in a future blog post)</span>
+
+seed = <span class="hljs-number">120</span>          <span class="hljs-comment"># A random seed to get replicable results</span>
+
+epochs = <span class="hljs-number">10</span>         <span class="hljs-comment"># The number of training epochs</span>
+</code></pre><pre class="python hljs"><code><span class="hljs-comment"># Initializing the training dataset</span>
+
+train_ds = tf.keras.utils.image_dataset_from_directory(
+  data_dir,
+  validation_split=<span class="hljs-number">0.2</span>,
+  subset=<span class="hljs-string">"training"</span>,
+  seed=seed,
+  image_size=(img_height, img_width),
+  batch_size=batch_size)
+
+</code></pre><pre>Found 7390 files belonging to 2 classes.
+Using 5912 files for training.
+</pre><p>Once the dataset is initialized, I do some basic sanity checks to make sure the labels are correct. I wasted a lot of time because of a bug here because the labels were not imported properly and the classifier was stuck at an accuracy of 0.66 (which is what you'll get if you guess that all the images are of that of dogs)</p><pre class="python hljs"><code>class_names = train_ds.class_names
+
+
+fig = plt.figure(figsize=(<span class="hljs-number">10</span>, <span class="hljs-number">10</span>))
+<span class="hljs-keyword">for</span> images, labels <span class="hljs-keyword">in</span> train_ds.take(<span class="hljs-number">1</span>):
+  <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">9</span>):
+    ax = plt.subplot(<span class="hljs-number">3</span>, <span class="hljs-number">3</span>, i + <span class="hljs-number">1</span>)
+    plt.imshow(images[i].numpy().astype(<span class="hljs-string">"uint8"</span>))
+    plt.title(class_names[labels[i]])
+    plt.axis(<span class="hljs-string">"off"</span>)
+
+plt.show()
+
+</code></pre><p><img src="files/10-pet-classif-basic_9_0.png" title="png"></p><pre class="python hljs"><code><span class="hljs-comment"># Initializing the testing dataset</span>
+
+val_ds = tf.keras.utils.image_dataset_from_directory(
+  data_dir,
+  validation_split=<span class="hljs-number">0.2</span>,
+  subset=<span class="hljs-string">"validation"</span>,
+  seed=seed,
+  image_size=(img_height, img_width),
+  batch_size=batch_size)
+
+</code></pre><pre>Found 7390 files belonging to 2 classes.
+Using 1478 files for validation.
+</pre><p>Again, I examine the datasets to make sure that things are as expected. Here I see that each batch has <code>32</code> images and each image is of size <code>(160, 160, 3)</code> - the third dimension is for the RGB color values.</p><pre class="python hljs"><code><span class="hljs-keyword">for</span> image_batch, labels_batch <span class="hljs-keyword">in</span> train_ds:
+  print(<span class="hljs-string">"Images in a batch:"</span>, image_batch.shape[<span class="hljs-number">0</span>])
+  print(<span class="hljs-string">"Labels in a batch:"</span>, image_batch.shape[<span class="hljs-number">0</span>])
+  print(<span class="hljs-string">"Size of each image:"</span>, image_batch.shape[<span class="hljs-number">1</span>:])
+  <span class="hljs-keyword">break</span>
+
+</code></pre><pre>Images in a batch: 32
+Labels in a batch: 32
+Size of each image: (160, 160, 3)
+</pre><h2>Modelling</h2><p>We create a sequential model using <code>tf.model.sequential</code>. The model consists of:</p><ul><li>1 rescaling (<code>tf.keras.Rescaling</code>) block because the input values are in the range <code>[0,255]</code> whereas inputs to the <code>tf.keras</code> layers are expected to be <code>[0., 1.]</code>.</li><li>3 convolution blocks (<code>tf.keras.layers.Conv2D</code>) with a max pooling layer (<code>tf.keras.layers.MaxPooling2D</code>) in each of them</li><li>1 fully-connected layer (<code>tf.keras.layers.Dense</code>) with 128 units on top of it that is activated by a <code>ReLU</code> activation function (<code>'relu'</code>)</li><li>1 fully-connected layer (<code>tf.keras.layers.Dense</code>) which outputs 1 binary value (since the expected output is binary - dor or cat)</li></ul><p>This model is the same as what is used in <a class="tc-tiddlylink-external" href="https://www.tensorflow.org/tutorials/images/classification" rel="noopener noreferrer" target="_blank">this Tensorflow tutorial</a>. I will expand on what these layers in another blog post.</p><pre class="python hljs"><code>%%time
+
+<span class="hljs-comment"># This enables prefetch and caching of images</span>
+<span class="hljs-comment"># The AUTOTUNE parameter adjusts the buffer_size dynamically</span>
+<span class="hljs-comment"># Details: https://www.tensorflow.org/guide/data_performance#prefetching</span>
+
+AUTOTUNE = tf.data.AUTOTUNE
+
+train_ds = train_ds.cache().prefetch(buffer_size=AUTOTUNE)
+val_ds = val_ds.cache().prefetch(buffer_size=AUTOTUNE)
+
+
+<span class="hljs-comment"># Creating a sequential model taking images of shape (160, 160, 3) as input</span>
+<span class="hljs-comment"># and giving output of shape (1,) </span>
+
+num_classes = <span class="hljs-number">1</span>
+model = tf.keras.Sequential([
+  tf.keras.layers.Rescaling(<span class="hljs-number">1.</span>/<span class="hljs-number">255</span>, input_shape=(img_height, img_width, <span class="hljs-number">3</span>)),
+  tf.keras.layers.Conv2D(<span class="hljs-number">16</span>, <span class="hljs-number">3</span>, activation=<span class="hljs-string">'relu'</span>),
+  tf.keras.layers.MaxPooling2D(),
+  tf.keras.layers.Conv2D(<span class="hljs-number">32</span>, <span class="hljs-number">3</span>, activation=<span class="hljs-string">'relu'</span>),
+  tf.keras.layers.MaxPooling2D(),
+  tf.keras.layers.Conv2D(<span class="hljs-number">64</span>, <span class="hljs-number">3</span>, activation=<span class="hljs-string">'relu'</span>),
+  tf.keras.layers.MaxPooling2D(),
+  tf.keras.layers.Flatten(),
+  tf.keras.layers.Dense(<span class="hljs-number">128</span>, activation=<span class="hljs-string">'relu'</span>),
+  tf.keras.layers.Dense(num_classes)
+])
+
+<span class="hljs-comment"># Choosing the tf.keras.optimizers.Adam with </span>
+<span class="hljs-comment"># the tf.keras.losses.BinaryCrossentropy loss function and</span>
+<span class="hljs-comment"># the tf.metrics.BinaryAccuracy as metric</span>
+
+model.compile(
+  optimizer=<span class="hljs-string">'adam'</span>,
+  loss=tf.keras.losses.BinaryCrossentropy(from_logits=<span class="hljs-literal">True</span>),
+  metrics=tf.metrics.BinaryAccuracy(threshold=<span class="hljs-number">0.0</span>))
+
+<span class="hljs-comment"># Finally fitting the model to the data in train_ds </span>
+<span class="hljs-comment"># with val_ds as the validation dataset</span>
+<span class="hljs-comment"># running for 10 epochs</span>
+
+history = model.fit(
+  train_ds,
+  validation_data=val_ds,
+  epochs=epochs,
+  verbose=<span class="hljs-number">0</span>
+)
+
+print(<span class="hljs-string">f"Finished <span class="hljs-subst">{epochs}</span> epochs"</span>)
+<span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> history.history:
+    print(<span class="hljs-string">f"Final <span class="hljs-subst">{i:&lt;<span class="hljs-number">20</span>}</span> <span class="hljs-subst">{history.history[i][<span class="hljs-number">-1</span>]:<span class="hljs-number">.5</span>f}</span>"</span>)
+print()
+</code></pre><pre>Finished 10 epochs
+Final loss                 0.05523
+Final binary_accuracy      0.98021
+Final val_loss             1.10491
+Final val_binary_accuracy  0.77402
+
+CPU times: user 26.5 s, sys: 718 ms, total: 27.2 s
+Wall time: 25.3 s
+</pre><p>Finally, we can extract the history of the training from <code>history</code> and visualize it.</p><pre class="python hljs"><code>acc = history.history[<span class="hljs-string">'binary_accuracy'</span>]
+val_acc = history.history[<span class="hljs-string">'val_binary_accuracy'</span>]
+
+loss = history.history[<span class="hljs-string">'loss'</span>]
+val_loss = history.history[<span class="hljs-string">'val_loss'</span>]
+
+epochs_range = range(epochs)
+
+plt.figure(figsize=(<span class="hljs-number">8</span>, <span class="hljs-number">8</span>))
+plt.subplot(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">1</span>)
+plt.plot(epochs_range, acc, label=<span class="hljs-string">'Training Accuracy'</span>, color=<span class="hljs-string">'#03CEA4'</span>)
+plt.plot(epochs_range, val_acc, label=<span class="hljs-string">'Validation Accuracy'</span>, color=<span class="hljs-string">'#fc00ff'</span>)
+plt.legend(loc=<span class="hljs-string">'lower right'</span>)
+plt.title(<span class="hljs-string">'Training and Validation Accuracy'</span>)
+
+plt.subplot(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">2</span>)
+plt.plot(epochs_range, loss, label=<span class="hljs-string">'Training Loss'</span>, color=<span class="hljs-string">'#03CEA4'</span>)
+plt.plot(epochs_range, val_loss, label=<span class="hljs-string">'Validation Loss'</span>, color=<span class="hljs-string">'#fc00ff'</span>)
+plt.legend(loc=<span class="hljs-string">'upper right'</span>)
+plt.title(<span class="hljs-string">'Training and Validation Loss'</span>)
+plt.show()
+
+</code></pre><p><img src="files/10-pet-classif-basic_16_0.png" title="png"></p><p>If we examine the first graph, we can see that the training accuracy is skyrocketing while validation model is somewhat static.</p><p>This is called overfitting! The model is basically memorizing the training data instead of observing higher level abstractions. We will fix that in future posts.</p>
+            </div>
+            <div class="tc-blog-footer">
+                <hr class="mb-2">
+                <nav class="tc-backlinks mb-4">
+                    <h2 class="backlinks-header">
+                        
+                    </h2>
+                    <div class="content">
+                        <ul>
+                            
+                        </ul>
+                    </div>
+                </nav>
+                <nav class="level is-mobile">
+                    
+                    <div class="level-left">
+                        <p class="is-size-7 has-text-grey-light is-small tc-modified tc-subtitle">Last Updated: 
+                            19th January, 2022
+                        </p>
+                    </div>
+                    <div class="level-right">
+                        <div class="tags">
+                            
+                                <span class="tag">
+                                    AI
+                                </span>
+                            
+                                <span class="tag">
+                                    deep learning
+                                </span>
+                            
+                                <span class="tag">
+                                    tensorflow
+                                </span>
+                            
+                        </div>
+                    </div>
+                </nav>
+                <hr>
+            </div>
+            <div id="disqus_thread"></div>
+            <noscript>Please enable JavaScript to view the comments.</noscript>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+  <div class="columns">
+	  <div class="column is-6-desktop is-8-tablet is-offset-2"><p><p>
+Built with <a class="tc-tiddlylink-external" href="https://tiddlyjam.com" rel="noopener noreferrer" target="_blank">TiddlyJam</a> and <a class="tc-tiddlylink-external" href="https://bulma.io/" rel="noopener noreferrer" target="_blank">Bulma</a>. Hosted on <a class="tc-tiddlylink-external" href="https://pages.github.com/" rel="noopener noreferrer" target="_blank">Github Pages</a>.
+    </p>
+		</p></div>
+  </div>
+	<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;600&amp;display=swap" rel="stylesheet">
+</footer>
+
+</body>
+</html>
