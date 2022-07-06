@@ -1,0 +1,314 @@
+
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+  <meta name="generator" content="TiddlyWiki" />
+  <meta name="tiddlywiki-version" content="5.2.1" />
+
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="mobile-web-app-capable" content="yes" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="page_canonical_url" content="https://adithyab.in/setting-up-pil-and-aggdraw" />
+	<meta name="page_unique_id" content="20220704212853210" />
+
+  <meta name="format-detection" content="telephone=no">
+	<script></script>
+  <link id="faviconLink" rel="shortcut icon" href="/favicon.ico">
+
+<title>Setting up PIL and aggdraw ~ Adithya's Lair</title>
+<meta name="description" content="I've recently been getting into generative art again. This time, I've decided to work with PIL since I've gotten super comfortable with python recently.">
+
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://adithyab.in/setting-up-pil-and-aggdraw" />
+<meta property="og:title" content="Setting up PIL and aggdraw ~ Adithya's Lair" />
+<meta property="og:image" content="" />
+<meta property="og:description" content="I've recently been getting into generative art again. This time, I've decided to work with PIL since I've gotten super comfortable with python recently." />
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@adithya_badidey">
+<meta name="twitter:creator" content="@adithya_badidey">
+<meta name="twitter:title" content="Setting up PIL and aggdraw ~ Adithya's Lair" />
+<meta name="twitter:description" content="I've recently been getting into generative art again. This time, I've decided to work with PIL since I've gotten super comfortable with python recently." />
+<meta name="twitter:image" content="" />
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-171642977-1"></script>
+
+<link rel="stylesheet" href="css/atom-one-dark.min.css">
+<script src="js/highlight.min.js" defer></script>
+<script src="js/scripts.js" defer></script>
+<link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body class="tc-body">
+  
+<nav aria-label="main navigation" class="navbar" role="navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="/">
+        Adithya's Lair
+      </a>
+
+      <a aria-expanded="false" aria-label="menu" class="navbar-burger burger" data-target="navbarTW" role="button">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+
+    <div class="navbar-menu" id="navbarTW">
+      <div class="navbar-end">
+<a class="navbar-item" href="/">Home</a>
+<a class="navbar-item" href="/blog">Blog</a>
+<a class="navbar-item" href="/portfolio">Portfolio</a>
+     </div>
+    </div>
+  </nav>
+
+
+<section class="section">
+    <div class="columns mt-6">
+        <div class="column is-5-fullhd is-6-desktop is-8-tablet is-offset-2">
+            <div class="content tc-blog">
+                
+                <span class="has-text-grey-light is-small tc-subtitle tc-created">
+                    5th July, 2022
+                </span>
+                <h1 class="tc-title mt-1">
+                    Setting up PIL and aggdraw
+                </h1>
+                <p>I've recently been getting into generative art again. This time, I've decided to work with PIL since I've gotten super comfortable with python recently.</p><p>The best thing about python for generative art is using the Jupyter notebook - I think its structure works beautifully like a sketchbook.</p><h2>Starting with PIL(Pillow)</h2><pre class="python hljs"><code><span class="hljs-comment">#!conda install pillow -y</span>
+<span class="hljs-comment">## OR</span>
+!pip install pillow
+</code></pre><pre>Requirement already satisfied: pillow in /usr/lib/python3/dist-packages (7.0.0)
+</pre><p>Once pillow is installed, I can import PIL and start using it. To begin with, I define some functions to make it easier to use aggdraw.</p><pre class="python hljs"><code><span class="hljs-keyword">from</span> PIL <span class="hljs-keyword">import</span> Image, ImageDraw
+<span class="hljs-keyword">import</span> random
+
+<span class="hljs-comment"># Initialize Parameters</span>
+image_height = <span class="hljs-number">150</span>
+image_width = <span class="hljs-number">900</span>
+seed = <span class="hljs-number">58</span>
+
+random.seed(seed)
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">getRandomPoint</span><span class="hljs-params">(xoffset = <span class="hljs-number">0</span>)</span>:</span>
+    <span class="hljs-keyword">return</span> (random.randrange(image_height) + xoffset), random.randrange(image_height)
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">collapse</span><span class="hljs-params">(arr)</span>:</span>
+    <span class="hljs-string">'''
+    Converts a 2d array into a 1d array 
+    [[1,2,3],[4,5,6]] -&gt; [1,2,3,4,5,6]
+    '''</span>
+    <span class="hljs-keyword">return</span> [item <span class="hljs-keyword">for</span> t <span class="hljs-keyword">in</span> arr <span class="hljs-keyword">for</span> item <span class="hljs-keyword">in</span> t]
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">getRandomPoints</span><span class="hljs-params">(count, offset = <span class="hljs-number">0</span>)</span>:</span>
+    v = [getRandomPoint(offset) <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> range(count)]
+    v = collapse(v)
+    <span class="hljs-keyword">return</span> v
+
+</code></pre><p>Once I do that, I can initialize a new image and start drawing. I'm still using only the basic draw functions from PIL.</p><pre class="python hljs"><code>image = Image.new(<span class="hljs-string">"RGB"</span>, (image_width, image_height), <span class="hljs-string">"black"</span>)
+draw = ImageDraw.Draw(image)
+
+draw.polygon([getRandomPoint() <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> range(<span class="hljs-number">3</span>)], fill=<span class="hljs-string">"green"</span>)
+draw.polygon([getRandomPoint() <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> range(<span class="hljs-number">5</span>)], 
+                  outline=<span class="hljs-string">"white"</span>)
+image
+</code></pre><p><img src="files/10-settingup-pil-aggdraw_5_0.png" title="png"></p><h2>Using the <code>aggdraw</code> library</h2><p>The <a class="tc-tiddlylink-external" href="https://aggdraw.readthedocs.io/en/latest/" rel="noopener noreferrer" target="_blank">AggDraw</a> library provides a python interface on top of the <a class="tc-tiddlylink-external" href="https://github.com/ghaerr/agg-2.6" rel="noopener noreferrer" target="_blank">AGG library</a>. Anti-Grain Geometry (AGG) is an Open Source, 2D vector graphics library, written by Maxim Shemanarev in C++.</p><p>It can be installed using <code>conda</code> or <code>pip</code> and imported as below</p><pre class="python hljs"><code><span class="hljs-comment">#!conda install -c conda-forge aggdraw -y</span>
+<span class="hljs-comment">## OR</span>
+!pip install aggdraw
+
+<span class="hljs-keyword">import</span> aggdraw
+</code></pre><pre>Requirement already satisfied: aggdraw in /home/addy/.local/lib/python3.8/site-packages (1.3.15)
+</pre><h2>The <code>Draw</code> Class</h2><ul><li><code>Draw(image_or_mode, size, color=None)</code> - (constructor) Creates a drawing interface object.</li><li>Parameters<ul><li><code>image_or_mode</code> - A PIL Image, or a mode string. The following modes are supported: “L”, “RGB”, “RGBA”, “BGR”, “BGRA”.</li><li><code>size</code> - If a mode string was given, this argument gives the image size, as a 2-tuple.</li><li><code>color</code> - An optional background color specifier. If a mode string was given, this is used to initialize the image memory. If omitted, it defaults to white with full alpha.</li></ul></li></ul><p>Initializing a <code>draw</code> object gives us access to all its drawing methods (<code>arc</code>, <code>chord</code>, <code>ellipse</code>, <code>line</code>, <code>path</code>, <code>pieslice</code>, <code>polygon</code>, <code>rectangle</code>, <code>symbol</code> and <code>text</code>). Lets start by looking at <code>rectangle</code>:</p><h3><code>Draw.rectangle(xy, pen, brush)</code></h3><ul><li>Draws a rectangle. If a brush is given, it is used to fill the rectangle. If a pen is given, it is used to draw an outline around the rectangle. Either one (or both) can be left out.</li><li>Parameters:<ul><li><code>xy</code> - A 4-element Python sequence (x, y, x, y), with the upper left corner given first.</li><li><code>pen</code> - Optional pen object created by the Pen factory.</li><li><code>brush</code> - Optional brush created by the Brush factory.</li></ul></li></ul><p>After calling any of the drawing methods, calling <code>flush()</code> will actually make the drawings onto the image.</p><pre class="python hljs"><code>offset = <span class="hljs-number">50</span>
+d = aggdraw.Draw(image)
+v = getRandomPoints(<span class="hljs-number">2</span>, offset)
+print(v)
+d.rectangle(v)
+d.flush()
+image
+</code></pre><pre>[53, 125, 104, 120]
+</pre><p><img src="files/10-settingup-pil-aggdraw_9_1.png" title="png"></p><p>That didn't draw anything at all! Thats because all drawing methods also expect either a <code>Pen</code> or a <code>Brush</code> object as parameters and if you do not supply any one of them, it will not do anything.</p><h2>The <code>Pen</code> Class</h2><ul><li><code>Pen(color, width=1, opacity=255)</code> - (constructor) Creates a pen object.</li><li>Parameters:<ul><li><code>color</code> - Pen color. This can be a color tuple, a CSS-style color name, or a color integer (0xaarrggbb).</li><li><code>width=</code> - Optional pen width.</li><li><code>opacity=</code> - Optional pen opacity. The default is to create a solid pen.</li></ul></li><li>Returns:<ul><li>A pen object.</li></ul></li></ul><p>Lets try drawing a rectangle again using this.</p><pre class="python hljs"><code>p = aggdraw.Pen(<span class="hljs-string">"cyan"</span>)
+d.rectangle(v, p)
+d.flush()
+image
+</code></pre><p><img src="files/10-settingup-pil-aggdraw_11_0.png" title="png"></p><h2>The <code>Brush</code> class</h2><ul><li><code>Brush(color, opacity=255)</code> - (constructor) Creates a brush object.</li><li>Parameters:<ul><li><code>color</code> - Brush color. This can be a color tuple, a CSS-style color name, or a color integer (0xaarrggbb).</li><li><code>opacity=</code> - Optional brush opacity. The default is to create a solid brush.</li></ul></li><li>Returns:<ul><li>A brush object.</li></ul></li></ul><pre class="python hljs"><code>offset += <span class="hljs-number">50</span>
+v = getRandomPoints(<span class="hljs-number">2</span>, offset)
+b = aggdraw.Brush(<span class="hljs-string">"green"</span>)
+d.rectangle(v, b)
+d.flush()
+image
+</code></pre><p><img src="files/10-settingup-pil-aggdraw_13_0.png" title="png"></p><h3><code>Draw.line(xy, pen)</code></h3><ul><li>Draws a line joining all the points on the <code>xy</code> parameter.</li><li>Parameters<ul><li><code>xy</code> - A Python sequence (x, y, x, y, …). If more than two coordinate pairs are given, they are connected in order, to form a polyline.</li><li><code>pen</code> - A pen object created by the Pen factory method.</li></ul></li></ul><p>Since we are using the same <code>v</code> as the rectangle, this function simply draws a diagonal of the rectangle (its inverted because the rectangle vertices themselves are inverted).</p><pre class="python hljs"><code>d.line(v, p)
+d.flush()
+image
+</code></pre><p><img src="files/10-settingup-pil-aggdraw_15_0.png" title="png"></p><h3><code>Draw.arc(xy, start, end, pen=None)</code></h3><ul><li>Draws an arc.</li><li>Parameters:<ul><li><code>xy</code> - A 4-element Python s|equence (x, y, x, y), with the upper left corner given first.</li><li><code>start</code> - Start angle.</li><li><code>end</code> - End angle.</li><li><code>pen</code> - Optional pen object created by the Pen factory.</li></ul></li></ul><pre class="python hljs"><code>offset += <span class="hljs-number">50</span>
+v = getRandomPoints(<span class="hljs-number">2</span>, offset)
+start = random.randrange(<span class="hljs-number">360</span>)
+end = random.randrange(<span class="hljs-number">360</span>)
+d.arc(v, start, end, p)
+d.flush()
+image
+</code></pre><p><img src="files/10-settingup-pil-aggdraw_17_0.png" title="png"></p><h3><code>Draw.chord(xy, start, end, pen=None, brush=None)</code></h3><ul><li>Draws a chord. If a brush is given, it is used to fill the chord. If a pen is given, it is used to draw an outline around the chord. Either one (or both) can be left out.</li><li>Parameters:<ul><li><code>xy</code> : A 4-element Python sequence (x, y, x, y), with the upper left corner given first.</li><li><code>start</code> : Start angle.</li><li><code>end</code> : End angle.</li><li><code>pen</code> : Optional pen object created by the Pen factory.</li><li><code>brush</code>: Optional brush object created by the Brush factory.</li></ul></li></ul><pre class="python hljs"><code>offset += <span class="hljs-number">50</span>
+v = getRandomPoints(<span class="hljs-number">2</span>, offset)
+start = random.randrange(<span class="hljs-number">360</span>)
+end = random.randrange(<span class="hljs-number">360</span>)
+d.chord(v, start, end, p)
+d.flush()
+image
+</code></pre><p><img src="files/10-settingup-pil-aggdraw_19_0.png" title="png"></p><h3><code>Draw.ellipse(xy, pen, brush)</code></h3><ul><li>Draws an ellipse. If a brush is given, it is used to fill the ellipse. If a pen is given, it is used to draw an outline around the ellipse. Either one (or both) can be left out.</li><li>Parameters:<ul><li><code>xy</code> - A bounding rectangle, given as a 4-element Python sequence (x, y, x, y), with the upper left corner given first. To draw a circle, make sure the coordinates form a square.</li><li><code>pen</code> - Optional pen object created by the Pen factory.</li><li><code>brush</code> - Optional brush created by the Brush factory.</li></ul></li></ul><pre class="python hljs"><code>offset += <span class="hljs-number">50</span>
+v = getRandomPoints(<span class="hljs-number">2</span>, offset)
+d.ellipse(v, p)
+d.flush()
+image
+</code></pre><p><img src="files/10-settingup-pil-aggdraw_21_0.png" title="png"></p><h3><code>Draw.pieslice(xy, start, end, pen=None, brush=None)</code></h3><ul><li>Draws a pieslice. If a brush is given, it is used to fill the pieslice. If a pen is given, it is used to draw an outline around the pieslice. Either one (or both) can be left out.</li><li>Parameters:<ul><li><code>xy</code> - A 4-element Python sequence (x, y, x, y), with the upper left corner given first.</li><li><code>start</code> - Start angle.</li><li><code>end</code> - End angle.</li><li><code>pen</code> - Optional pen object created by the Pen factory.</li><li><code>brush</code> - Optional brush object created by the Brush factory.</li></ul></li></ul><pre class="python hljs"><code>offset += <span class="hljs-number">50</span>
+v = getRandomPoints(<span class="hljs-number">2</span>, offset)
+start = random.randrange(<span class="hljs-number">360</span>)
+end = random.randrange(<span class="hljs-number">360</span>)
+d.pieslice(v, start, end, p)
+d.flush()
+image
+</code></pre><p><img src="files/10-settingup-pil-aggdraw_23_0.png" title="png"></p><h3><code>Draw.polygon(xy, pen, brush)</code></h3><ul><li>Draws a polygon. If a brush is given, it is used to fill the polygon. If a pen is given, it is used to draw an outline around the polygon. Either one (or both) can be left out.</li><li>Parameters:<ul><li><code>xy</code> - A Python sequence (x, y, x, y, …).</li><li><code>pen</code> - Optional pen object created by the Pen factory.</li><li><code>brush</code> - Optional brush object created by the Brush factory.</li></ul></li></ul><pre class="python hljs"><code>offset += <span class="hljs-number">50</span>
+v = getRandomPoints(<span class="hljs-number">8</span>, offset)
+d.polygon(v, p)
+d.flush()
+image
+</code></pre><p><img src="files/10-settingup-pil-aggdraw_25_0.png" title="png"></p><h2>The <code>Path</code> Object</h2><ul><li><code>Path()</code> - (constructor) creates a path object for use with path.</li><li>Returns:<ul><li>A <code>Path</code> object.</li></ul></li></ul><h3><code>Path.lineto(x, y)</code></h3><ul><li>Adds a line segment to the path.</li><li>Parameters:<ul><li><code>x</code> - The x coordinate</li><li><code>y</code> - The y coordinate</li></ul></li></ul><h3><code>Path.close()</code></h3><ul><li>Closes the current path.</li></ul><p>Finally, we need to draw this path on the canvas.</p><h3><code>Draw.path(xy, path, pen=None, brush=None)</code></h3><ul><li>Draws a path at the given positions. If a brush is given, it is used to fill the path. If a pen is given, it is used to draw an outline around the path. Either one (or both) can be left out.</li><li>Parameters:</li><li><code>xy</code> - A Python sequence (x, y, x, y, …).</li><li><code>path</code> - A symbol object created by the Path factory.</li><li><code>pen</code> - Optional pen object created by the Pen factory.</li><li><code>brush</code> - Optional brush object created by the Brush factory.</li></ul><pre class="python hljs"><code>offset += <span class="hljs-number">50</span>
+path = aggdraw.Path()
+path.lineto(*getRandomPoint(offset)) <span class="hljs-comment">#First .lineto() sets starting point of the path</span>
+path.lineto(*getRandomPoint(offset))
+path.lineto(*getRandomPoint(offset))
+path.lineto(*getRandomPoint(offset))
+path.lineto(*getRandomPoint(offset))
+path.lineto(*getRandomPoint(offset))
+path.close() <span class="hljs-comment"># Optional in this case</span>
+d.path(path, b)
+d.flush()
+image
+</code></pre><p><img src="files/10-settingup-pil-aggdraw_27_0.png" title="png"></p><h3><code>Path.rlineto(x, y)</code></h3><ul><li>Adds a line segment to the path, using relative coordinates.</li><li>Parameters:<ul><li><code>x</code> - The relative x coordinate</li><li><code>y</code> - The relative y coordinate</li></ul></li></ul><pre class="python hljs"><code>offset += <span class="hljs-number">50</span>
+path = aggdraw.Path()
+path.lineto(*getRandomPoint(offset)) <span class="hljs-comment">#First .lineto() sets starting point of the path</span>
+path.rlineto(<span class="hljs-number">20</span>, <span class="hljs-number">50</span>)
+path.rlineto(<span class="hljs-number">-40</span>, <span class="hljs-number">-30</span>)
+path.rlineto(<span class="hljs-number">50</span>, <span class="hljs-number">0</span>)
+path.rlineto(<span class="hljs-number">-40</span>, <span class="hljs-number">30</span>)
+path.close() <span class="hljs-comment"># Optional in this case</span>
+d.path(path, p)
+d.flush()
+image
+</code></pre><p><img src="files/10-settingup-pil-aggdraw_29_0.png" title="png"></p><h3><code>Path.curveto(x1, y1, x2, y2, x, y)</code></h3><ul><li>Adds a bezier curve segment to the path.</li><li>Parameters:<ul><li><code>x1</code> - The absolute x-coordinate for P1 control point</li><li><code>y1</code> - The absolute y-coordinate</li><li><code>x2</code> - The absolute x-coordinate for P2 control point</li><li><code>y2</code> - The absolute y-coordinate</li><li><code>x</code> - The absolute x-coordinate for P3 control point</li><li><code>y</code> - The absolute y-coordinate</li></ul></li></ul><p>Below, I first draw the control point lines (P0-P1 and P2-P3) then use <code>curveto</code> to draw the actual bezier curve.</p><pre class="python hljs"><code>offset += <span class="hljs-number">100</span>
+pgrey = aggdraw.Pen(<span class="hljs-string">"grey"</span>)
+
+path = aggdraw.Path()
+xs, ys = getRandomPoint(offset)
+path.lineto(xs, ys) <span class="hljs-comment">#First .lineto() sets starting point of the path</span>
+
+x1, y1, x2, y2, xd, yd = getRandomPoints(<span class="hljs-number">3</span>, offset)
+d.line((xs, ys, x1, y1), pgrey)
+d.line((x2, y2, xd, yd), pgrey)
+path.curveto(x1, y1, x2, y2, xd, yd)
+
+xs, ys = xd, yd
+x1, y1, x2, y2, xd, yd = getRandomPoints(<span class="hljs-number">3</span>, offset)
+d.line((xs, ys, x1, y1), pgrey)
+d.line((x2, y2, xd, yd), pgrey)
+path.curveto(x1, y1, x2, y2, xd, yd)
+
+xs, ys = xd, yd
+x1, y1, x2, y2, xd, yd = getRandomPoints(<span class="hljs-number">3</span>, offset)
+d.line((xs, ys, x1, y1), pgrey)
+d.line((x2, y2, xd, yd), pgrey)
+path.curveto(x1, y1, x2, y2, xd, yd)
+
+xs, ys = xd, yd
+x1, y1, x2, y2, xd, yd = getRandomPoints(<span class="hljs-number">3</span>, offset)
+d.line((xs, ys, x1, y1), pgrey)
+d.line((x2, y2, xd, yd), pgrey)
+path.curveto(x1, y1, x2, y2, xd, yd)
+
+path.close() <span class="hljs-comment"># Optional in this case</span>
+d.path(path, p)
+d.flush()
+image
+</code></pre><p><img src="files/10-settingup-pil-aggdraw_31_0.png" title="png"></p><h3><code>Path.rcurveto(x1, y1, x2, y2, x, y)</code></h3><ul><li>Adds a bezier curve segment to the path using relative coordinates.</li><li>Parameters:<ul><li><code>x1</code> - The relative x-coordinate for P1 control point</li><li><code>y1</code> - The relative y-coordinate</li><li><code>x2</code> - The relative x-coordinate for P2 control point</li><li><code>y2</code> - The relative y-coordinate</li><li><code>x</code> - The relative x-coordinate for P3 control point</li><li><code>y</code> - The relative y-coordinate</li></ul></li></ul><p>Below, I first draw the control point lines (P0-P1 and P2-P3) in grey then use <code>rcurveto</code> to draw the actual bezier curve in blue.</p><pre class="python hljs"><code>offset += <span class="hljs-number">150</span>
+pgrey = aggdraw.Pen(<span class="hljs-string">"grey"</span>)
+
+path = aggdraw.Path()
+xs, ys = offset, <span class="hljs-number">10</span>
+path.lineto(xs, ys) <span class="hljs-comment">#First .lineto() sets starting point of the path</span>
+
+
+d.line((xs, ys, xs+<span class="hljs-number">40</span>, ys+<span class="hljs-number">40</span>), pgrey)
+d.line((xs+<span class="hljs-number">60</span>, ys+<span class="hljs-number">40</span>, xs+<span class="hljs-number">100</span>, ys), pgrey)
+path.rcurveto(<span class="hljs-number">50</span>, <span class="hljs-number">50</span>, <span class="hljs-number">50</span>, <span class="hljs-number">50</span>, <span class="hljs-number">100</span>, <span class="hljs-number">0</span>)
+
+
+d.line((xs+<span class="hljs-number">100</span>, ys, xs+<span class="hljs-number">140</span>, ys+<span class="hljs-number">40</span>), pgrey)
+d.line((xs+<span class="hljs-number">60</span>, ys+<span class="hljs-number">40</span>, xs + <span class="hljs-number">100</span>, ys + <span class="hljs-number">100</span>), pgrey)
+path.rcurveto(<span class="hljs-number">50</span>, <span class="hljs-number">50</span>, <span class="hljs-number">-50</span>, <span class="hljs-number">50</span>, <span class="hljs-number">0</span>, <span class="hljs-number">100</span>)
+
+d.line(( xs + <span class="hljs-number">100</span>, ys + <span class="hljs-number">100</span>, xs + <span class="hljs-number">140</span>, ys + <span class="hljs-number">140</span>), pgrey)
+d.line((xs+<span class="hljs-number">40</span>, ys+<span class="hljs-number">140</span>, xs, ys), pgrey)
+path.rcurveto(<span class="hljs-number">50</span>, <span class="hljs-number">50</span>, <span class="hljs-number">-50</span>, <span class="hljs-number">50</span>, <span class="hljs-number">-100</span>, <span class="hljs-number">-100</span>)
+
+path.close() <span class="hljs-comment"># Optional in this case</span>
+d.path(path, p)
+d.flush()
+image
+</code></pre><p><img src="files/10-settingup-pil-aggdraw_33_0.png" title="png"></p><p>And that covers most of the api.</p>
+            </div>
+            <div class="tc-blog-footer">
+                <hr class="mb-2">
+                <nav class="tc-backlinks mb-4">
+                    <h2 class="backlinks-header">
+                        
+                    </h2>
+                    <div class="content">
+                        <ul>
+                            
+                        </ul>
+                    </div>
+                </nav>
+                <nav class="level is-mobile">
+                    
+                    <div class="level-left">
+                        <p class="is-size-7 has-text-grey-light is-small tc-modified tc-subtitle">Last Updated: 
+                            5th July, 2022
+                        </p>
+                    </div>
+                    <div class="level-right">
+                        <div class="tags">
+                            
+                                <span class="tag">
+                                    generative art
+                                </span>
+                            
+                                <span class="tag">
+                                    PIL
+                                </span>
+                            
+                        </div>
+                    </div>
+                </nav>
+                <hr>
+            </div>
+            <div id="disqus_thread"></div>
+            <noscript>Please enable JavaScript to view the comments.</noscript>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+  <div class="columns">
+	  <div class="column is-6-desktop is-8-tablet is-offset-2"><p><p>
+Built with <a class="tc-tiddlylink-external" href="https://tiddlyjam.com" rel="noopener noreferrer" target="_blank">TiddlyJam</a> and <a class="tc-tiddlylink-external" href="https://bulma.io/" rel="noopener noreferrer" target="_blank">Bulma</a>. Hosted on <a class="tc-tiddlylink-external" href="https://pages.github.com/" rel="noopener noreferrer" target="_blank">Github Pages</a>.
+    </p>
+		</p></div>
+  </div>
+	<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;600&amp;display=swap" rel="stylesheet">
+</footer>
+
+</body>
+</html>
